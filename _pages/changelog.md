@@ -10,7 +10,7 @@ Welcome to NostrID changelog.
 <br>
 
 ### `Latest`
-# **Version 1.0 (build 1)**
+# **Version 1.0 (build 9)**
 First release. The app is still buggy on the websocket side and loading/display consistency.
 
 #### What's New
@@ -18,7 +18,7 @@ First release. The app is still buggy on the websocket side and loading/display 
 
 <br>
 
-### **Version 2.1**
+<!-- ### **Version 2.1** -->
 <!-- Abnormal and formidable against much the before well improper more spent far heron amicably iguana plainly swanky upon mammoth **much paid darn some tapir** some glared save crud more regarding one accommodating gosh cannily and on hungry a more goodness inside merry yikes wedded versus because some a a a shined anteater goldfinch jeez up so and this this a.
 
 #### What's New
