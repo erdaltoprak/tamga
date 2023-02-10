@@ -37,7 +37,7 @@ features                                  :
 
   - title                                 : Offline Ready
     description                           : Browse your Nostr contacts without being always online.
-    fontawesome_icon_name                 : plane-up-slash
+    fontawesome_icon_name                 : plane-slash
     
   - title                                 : Privacy First
     description                           : The app doesn't have any ads or trackers, all the content is retreived through open relays.
