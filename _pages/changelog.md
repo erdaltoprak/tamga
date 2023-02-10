@@ -15,7 +15,7 @@ This build is a big rewrite of the app with core data (persistent offline contac
 please install the app again.
 
 #### What's New
-- Persistent data available offline \n 
+- Persistent data available offline
 - Search bar for contact
 - Multiple relay management
 - Damus partial integration with url schemes
