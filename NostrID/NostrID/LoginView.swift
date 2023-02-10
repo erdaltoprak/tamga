@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import BetterSafariView
 
 struct LoginView: View {
-    
+    @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var session: SessionManager
+    @ObservedObject var userSettings = UserSettings.shared
     @State private var animateGradient = true
-    @AppStorage(UserDefaultKeys.publicKey) private var publicKey: String = UserDefaultKeys.publicKey
-    @AppStorage(UserDefaultKeys.relay) private var relay: String = UserDefaultKeys.relay
+    @State private var tempKey = ""
+    @State private var moreNostrInfo : Bool = false
     
     static let hexRegex = try! NSRegularExpression(pattern: "^[0-9a-f]{64}$", options: .caseInsensitive)
     
@@ -48,7 +50,7 @@ struct LoginView: View {
                                       weight: .heavy,
                                       design: .rounded))
                     
-                    Text("Enter your existing public hex key, and choose your favorite relay to start seeing your nostr friends and profile. If your public key starts with \"npub\" you can convert if by clicking below. (Read-Only Alpha)")
+                    Text("Enter your existing private key to continue. You can get more informations by clicking below.  (Read-Only Beta)")
                         .padding()
                         .font(.system(size: 18,
                                       weight: .regular,
@@ -60,7 +62,7 @@ struct LoginView: View {
                 .padding(.bottom, 20)
                 
                 VStack(spacing: 0){
-                    TextField("Public Key", text: $publicKey)
+                    TextField("Private Key", text: $tempKey)
                         .padding()
                         .frame(width: 350, height: 50)
                         .background(.black, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
@@ -68,24 +70,14 @@ struct LoginView: View {
                         .padding(.bottom, 8)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
-                    TextField("Relay", text: $relay)
-                        .padding()
-                        .frame(width: 350, height: 50)
-                        .background(.black, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                        .font(.system(size: 13, weight: .bold, design: .rounded))
-                        .padding(.bottom, 8)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .onTapGesture {
-                            hapticPlay(.rigid)
-                        }
                 }
                 .padding(.bottom, 30)
                 
                 VStack{
                     
                     Button(action: {
-                        UIApplication.shared.open(URL(string: "\(UserDefaultKeys.moreNostrInfo)")!)
+                        self.moreNostrInfo = true
+                        HapticsManager.shared.hapticNotify(.success)
                     }) {
                         Text("Learn more")
                     }
@@ -93,36 +85,48 @@ struct LoginView: View {
                     .frame(width: 185, height: 54)
                     .background(.white, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
                     .transition(.scale.combined(with: .opacity))
-                    
-                    Button(action: {
-                        UIApplication.shared.open(URL(string: "\(UserDefaultKeys.nostreKeyConvert)")!)
-                    }) {
-                        Text("Convert Key")
+                    .safariView(isPresented: $moreNostrInfo) {
+                        SafariView(
+                            url: URL(string: userSettings.moreNostrInfo)!,
+                            configuration: SafariView.Configuration(
+                                entersReaderIfAvailable: false,
+                                barCollapsingEnabled: true
+                            )
+                        )
+                        .preferredBarAccentColor(.clear)
+                        .preferredControlAccentColor(.accentColor)
+                        .dismissButtonStyle(.done)
                     }
-                    .font(.system(size: 20, weight: .bold, design: .rounded))
-                    .padding(.horizontal, 34)
-                    .padding(.vertical, 15)
-                    .background(.white, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                    .transition(.scale.combined(with: .opacity))
                     
                     
                     Button("Login") {
-                        relay = relay.trimmingCharacters(in: .whitespaces)
-                        publicKey = publicKey.trimmingCharacters(in: .whitespaces)
+                        tempKey = tempKey.trimmingCharacters(in: .whitespaces)
+                        KeyConvert.shared.keyConversion(key: tempKey)
+                        tempKey = ""
                         session.signIn()
-                        hapticNotify(.success)
-                        
+                        HapticsManager.shared.hapticNotify(.success)
+                        let contact = Profile(context: viewContext)
+                        contact.id = userSettings.publicHexKey
+                        contact.isMainUser = true
+                        contact.isOfflineProfile  = false
+                        contact.lastProfileUpdate = 0
+                        do {
+                            try viewContext.save()
+//                            contact.retreiveProfile()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
                         
                     }
                     .font(.system(size: 20, weight: .bold, design: .rounded))
                     .padding(.horizontal, 65)
                     .padding(.vertical, 15)
-                    .background(publicKey.isEmpty || publicKey == "Enter Your Public Key" || !LoginView.isValidHex(publicKey) ? Color.red : Color.white, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    .background(!KeyConvert.shared.isValidString(key: tempKey) ? Color.red : Color.white, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
                     .foregroundColor(.black)
-                    .disabled(publicKey.isEmpty || publicKey == "Enter Your Public Key" || !LoginView.isValidHex(publicKey))
+                    .disabled(!KeyConvert.shared.isValidString(key: tempKey))
                     .onTapGesture {
-                        if publicKey.isEmpty || publicKey == "Enter Your Public Key" || !LoginView.isValidHex(publicKey) {
-                            hapticNotify(.error)
+                        if !KeyConvert.shared.isValidString(key: tempKey) {
+                            HapticsManager.shared.hapticNotify(.error)
                         }
                     }
                 }

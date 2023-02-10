@@ -12,9 +12,11 @@ import UIKit
 
 struct KeysView: View {
     
+    @ObservedObject var userSettings = UserSettings.shared
     
-    @AppStorage(UserDefaultKeys.publicKey) var publicKey: String?
+//    @AppStorage(UserDefaultKeys.publicKey) var publicKey: String?
     @State private var showCopyAlert = false
+    
     
     var body: some View {
         ZStack{
@@ -28,20 +30,26 @@ struct KeysView: View {
                                 Image(systemName: "person.crop.circle")
                                     .resizable()
                                     .frame(width: 20, height: 20)
-                                Text("Hex : \(publicKey ?? "empty")")
+                                Text("Hex : \(userSettings.publicHexKey)")
                                 Spacer()
                             }
                             .contentShape(Rectangle())
                             .onTapGesture {
-                                UIPasteboard.general.string = self.publicKey
+                                UIPasteboard.general.string = self.userSettings.publicHexKey
                                 self.showCopyAlert = true
-                                hapticNotify(.success)
+                                HapticsManager.shared.hapticNotify(.success)
                             }
                             HStack(alignment: .center, spacing: 8) {
                                 Image(systemName: "person.crop.circle")
                                     .resizable()
                                     .frame(width: 20, height: 20)
-                                Text("Npub : Coming Soon...")
+                                Text("Npub : \(userSettings.publicNpubKey)")
+                            }
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                UIPasteboard.general.string = self.userSettings.publicNpubKey
+                                self.showCopyAlert = true
+                                HapticsManager.shared.hapticNotify(.success)
                             }
                         }
                         
@@ -51,13 +59,13 @@ struct KeysView: View {
                                 Image(systemName: "key")
                                     .resizable()
                                     .frame(width: 12, height: 20)
-                                Text("Hex : Coming Soon...")
+                                Text("Hex : \(userSettings.privateHexKey)")
                             }
                             HStack(alignment: .center, spacing: 8) {
                                 Image(systemName: "key")
                                     .resizable()
                                     .frame(width: 12, height: 20)
-                                Text("Nsec : Coming Soon...")
+                                Text("Nsec : \(userSettings.privateNsecKey)")
                             }
                         }
                     }

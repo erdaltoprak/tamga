@@ -11,9 +11,14 @@ struct ThanksToView: View {
     var body: some View {
         List{
             Text("Nostr")
+            Text("Nostr.Band")
             Text("Damus.io")
             Text("ConfettiSwiftUI")
+            Text("BetterSafariView")
             Text("Starscream")
+            Text("NostrKit")
+            Text("secp256k1")
+            Text("swift-crypto")
         }
         .navigationTitle("Thanks To")
     }

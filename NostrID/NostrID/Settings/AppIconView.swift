@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppIconView: View {
     
-    @AppStorage(UserDefaultKeys.currentAppIcon) var currentAppIcon : String = "AppIcon1"
+    @ObservedObject var userSettings = UserSettings.shared
     
     var body: some View {
             HStack(alignment: .top, spacing: 12) {
@@ -30,7 +30,8 @@ struct AppIconView: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            currentAppIcon = "AppIcon1"
+                            HapticsManager.shared.hapticPlay(.light)
+                            userSettings.currentAppIcon = "AppIcon1"
                             UIApplication.shared.setAlternateIconName(nil)
                         }
 
@@ -50,9 +51,32 @@ struct AppIconView: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            currentAppIcon = "AppIcon2"
-                            UIApplication.shared.setAlternateIconName(currentAppIcon)
+                            HapticsManager.shared.hapticPlay(.light)
+                            userSettings.currentAppIcon = "AppIcon2"
+                            UIApplication.shared.setAlternateIconName(userSettings.currentAppIcon)
                         }
+                        
+                        Divider()
+                        
+                        HStack{
+                            Image(uiImage: .init(named: "icon3") ?? .init())
+                              .resizable()
+                              .aspectRatio(contentMode: .fit)
+                              .frame(width: 80, height: 80)
+                              .cornerRadius(min(40, 80) / 2)
+
+                            Text("A cloudy pink gradient")
+                                .padding(5)
+
+                            Spacer()
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            HapticsManager.shared.hapticPlay(.light)
+                            userSettings.currentAppIcon = "AppIcon3"
+                            UIApplication.shared.setAlternateIconName(userSettings.currentAppIcon)
+                        }
+                        
                     }
                 }
 

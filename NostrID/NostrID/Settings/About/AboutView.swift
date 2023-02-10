@@ -9,8 +9,7 @@ import SwiftUI
 
 struct AboutView: View {
     
-    let twitter1 = URL(string: "twitter://user?screen_name=\(UserDefaultKeys.personnalTwitter)")!
-    let TwitterWebURL1 = URL(string: "https://twitter.com/\(UserDefaultKeys.personnalTwitter)")!
+    @ObservedObject var userSettings = UserSettings.shared
     @State private var showCopyAlert = false
     
     
@@ -44,10 +43,10 @@ struct AboutView: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            if UIApplication.shared.canOpenURL(twitter1 as URL) {
-                                UIApplication.shared.open(twitter1)
+                            if UIApplication.shared.canOpenURL(URL(string: "twitter://user?screen_name=\(userSettings.erdalTwitter)")! as URL) {
+                                UIApplication.shared.open(URL(string: "twitter://user?screen_name=\(userSettings.erdalTwitter)")!)
                             } else {
-                                UIApplication.shared.open(TwitterWebURL1)
+                                UIApplication.shared.open(URL(string: "https://twitter.com/\(userSettings.erdalTwitter)")!)
                             }
                         }
                         
@@ -61,9 +60,13 @@ struct AboutView: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
-                                hapticNotify(.success)
+                            if UIApplication.shared.canOpenURL(URL(string: "nostr://\(userSettings.erdalNpub)")! as URL) {
+                                UIApplication.shared.open(URL(string: "nostr://\(userSettings.erdalNpub)")!)
+                            } else {
+                                HapticsManager.shared.hapticNotify(.success)
                                 self.showCopyAlert = true
-                                UIPasteboard.general.string = UserDefaultKeys.personnalNostr
+                                UIPasteboard.general.string = userSettings.erdalNpub
+                            }
                         }
                         
                         HStack(alignment: .center, spacing: 8) {
@@ -75,9 +78,13 @@ struct AboutView: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
-                                hapticNotify(.success)
+                            if UIApplication.shared.canOpenURL(URL(string: "nostr://\(userSettings.nostridNpub)")! as URL) {
+                                UIApplication.shared.open(URL(string: "nostr://\(userSettings.nostridNpub)")!)
+                            } else {
+                                HapticsManager.shared.hapticNotify(.success)
                                 self.showCopyAlert = true
-                                UIPasteboard.general.string = UserDefaultKeys.nostridNostr
+                                UIPasteboard.general.string = userSettings.nostridNpub
+                            }
                         }
                         
                         

@@ -4,6 +4,10 @@
 <dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>nostr</string>
+	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

@@ -16,6 +16,7 @@ struct NostrIDApp: App {
         WindowGroup {
             NostrIDMainApp()
                 .environmentObject(session)
+                .environment(\.managedObjectContext, AppCoreData.shared.viewContext)
         }
     }
 }

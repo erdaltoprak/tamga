@@ -22,6 +22,7 @@ struct HomeView: View {
                         .tabItem {
                             VStack {
                                 Image(systemName: "person.text.rectangle.fill")
+                                Text("Contacts")
                             }
                         }
                         .tag(0)
@@ -30,6 +31,7 @@ struct HomeView: View {
                         .tabItem {
                             VStack {
                                 Image(systemName: "person.fill")
+                                Text("Profile")
                             }
                         }
                         .tag(1)
@@ -38,13 +40,20 @@ struct HomeView: View {
                         .tabItem {
                             VStack {
                                 Image(systemName: "gearshape")
+                                Text("Settings")
                             }
                         }
                         .tag(2)
                     
                 }
                 .onChange(of: selection) { value in
-                    hapticPlay(.light)
+                    HapticsManager.shared.hapticPlay(.light)
+                }
+                .onAppear {
+                    if #available(iOS 15.0, *) {
+                        let appearance = UITabBarAppearance()
+                        UITabBar.appearance().scrollEdgeAppearance = appearance
+                    }
                 }
             }
         }

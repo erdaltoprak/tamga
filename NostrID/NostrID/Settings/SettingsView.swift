@@ -8,13 +8,15 @@
 import SwiftUI
 import LocalAuthentication
 import ConfettiSwiftUI
+import BetterSafariView
 
 
 struct SettingsView: View {
     
     @EnvironmentObject var session: SessionManager
-    @AppStorage(UserDefaultKeys.hapticsEnabled) private var isHapticsEnabled: Bool = true
+    @ObservedObject var userSettings = UserSettings.shared
     @State private var counter = 0
+    @State var showSafari = false
     
     var body: some View {
         NavigationView{
@@ -50,15 +52,16 @@ struct SettingsView: View {
                                 Image(systemName: "water.waves")
                                     .resizable()
                                     .frame(width: 20, height: 20)
-                                Toggle("Enable Haptics", isOn: $isHapticsEnabled)
+                                Toggle("Enable Haptics", isOn: $userSettings.hapticsEnabled)
                             }
-                            HStack(alignment: .center, spacing: 8) {
-                                Image(systemName: "faceid")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-                                Toggle("Face ID", isOn: .constant(false))
-                                    .foregroundColor(.gray)
-                            }
+//                            HStack(alignment: .center, spacing: 8) {
+//                                Image(systemName: "faceid")
+//                                    .resizable()
+//                                    .frame(width: 20, height: 20)
+//                                    .foregroundColor(.gray)
+//                                Toggle("Face ID", isOn: .constant(false))
+//                                    .foregroundColor(.gray)
+//                            }
                         }
                         
                         Section{
@@ -68,18 +71,45 @@ struct SettingsView: View {
                                     .frame(width: 20, height: 20)
                                 NavigationLink("About", destination: AboutView())
                             }
+                            HStack(alignment: .center, spacing: 8) {
+                                Image(systemName: "questionmark.circle")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                                Button(action: {
+                                    self.showSafari = true
+                                }) {
+                                    Text("Nostr Help")
+                                }
+                                .safariView(isPresented: $showSafari) {
+                                    SafariView(
+                                        url: URL(string: userSettings.moreNostrInfo)!,
+                                        configuration: SafariView.Configuration(
+                                            entersReaderIfAvailable: false,
+                                            barCollapsingEnabled: true
+                                        )
+                                    )
+                                    .preferredBarAccentColor(.clear)
+                                    .preferredControlAccentColor(.accentColor)
+                                    .dismissButtonStyle(.done)
+                                }
+                            }
+
                         }
                         
                         Section(){
                             Button("Logout", role: .destructive){
+                                print("Settings => LOGOUT")
                                 session.signOut()
-                                hapticNotify(.warning)
+                                AppCoreData.shared.deleteAllData()
+                                HapticsManager.shared.hapticNotify(.warning)
                             }
                             Button("Reset", role: .destructive){
+                                print("Settings => RESET")
                                 counter += 1
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                     session.resetOnboarding()
-                                    hapticNotify(.warning)
+                                    AppCoreData.shared.deleteAllData()
+                                    HapticsManager.shared.hapticNotify(.warning)
                                 }
                             }
                             

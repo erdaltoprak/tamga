@@ -6,16 +6,21 @@
 //
 
 import SwiftUI
-
+import CoreData
 
 struct ProfileView: View {
-    @AppStorage(UserDefaultKeys.publicKey) var publicKey: String?
-    @ObservedObject var nostrProfile = NostrEvent.shared
-    
+    @Environment(\.managedObjectContext) var viewContext
+    @ObservedObject var userSettings = UserSettings.shared
+    @State var isProfileTab = true
+    @FetchRequest(
+        sortDescriptors: [],
+        predicate: NSPredicate(format: "isMainUser == %@", NSNumber(value: true))
+    ) var profiles: FetchedResults<Profile>
+
     
     var bannerView: some View {
         AsyncImage(
-            url: URL(string: nostrProfile.profile.profileBanner ?? ""),
+            url: URL(string: profiles[0].profileBanner ?? ""),
             content: { image in
                 image.resizable()
                     .frame(maxWidth: .infinity, maxHeight: 200)
@@ -28,16 +33,17 @@ struct ProfileView: View {
             }
         )
     }
-
+    
     var profilePictureView: some View {
         AsyncImage(
-            url: URL(string: nostrProfile.profile.profilePicture ?? ""),
+            url: URL(string: profiles[0].profilePicture ?? ""),
             content: { image in
                 image.resizable()
                     .frame(width: 150, height: 150)
                     .aspectRatio(CGSize(width: 50, height: 50), contentMode: .fill)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                    .background(Circle().foregroundColor(Color.black))
                     .shadow(radius: 10)
             },
             placeholder: {
@@ -51,7 +57,7 @@ struct ProfileView: View {
             }
         )
     }
-
+    
     
     var body: some View {
         NavigationView{
@@ -61,51 +67,32 @@ struct ProfileView: View {
                     profilePictureView
                         .offset(x: 0, y: -75)
                         .padding(.bottom, -75)
-
+                    
                     VStack(alignment: .center) {
-                        Text("\(nostrProfile.profile.displayName ?? "")")
+                        Text("\(profiles[0].profileName ?? "")")
                             .font(.title)
                             .fontWeight(.bold)
-
-                        Text("@\(nostrProfile.profile.handle ?? "")\n")
+                        
+                        Text("@\(profiles[0].profileHandle ?? "")\n")
                             .font(.title3)
                         
-                        Text("\(nostrProfile.profile.id)\n\n")
+                        Text("\(profiles[0].id ?? "")\n\n")
                             .font(.footnote)
-                            
                         
-                        Text(nostrProfile.profile.description ?? "")
+                        Text(profiles[0].profileDescription ?? "")
                             .font(.body)
                             .lineLimit(nil)
                             .multilineTextAlignment(.center)
                     }
                     .padding()
-                    .redacted(if: nostrProfile.isReady == false)
-                    
                     Spacer()
                     
                 }
             }
-            .refreshable {
-                let _ = print("REFRESHED VIEW")
-                NostrEvent.shared.isReady = false
-                NostrManager.shared.release()
-                if WebSocketManager.shared.isConnected == false {
-                    NostrManager.shared.setup()
-                }
-            }
+            .edgesIgnoringSafeArea(!isProfileTab ? .all : .init())
             .navigationTitle("Profile")
-            
         }
-    }
-    
-    
-    
-    
-    struct ProfileView_Previews: PreviewProvider {
-        static var previews: some View {
-            ProfileView()
-        }
-    }
-}
 
+    }
+    
+}

@@ -7,14 +7,16 @@
 
 import SwiftUI
 import UIKit
+import BetterSafariView
 
 
 struct OnboardingView: View {
     
-    @AppStorage(UserDefaultKeys.hapticsEnabled) private var isHapticsEnabled: Bool = false
     @StateObject private var manager = OnboardingManager()
+    @ObservedObject var userSettings = UserSettings.shared
     @State private var showBtn = false
     @State private var animateGradient = true
+    @State var showSafari = false
     @EnvironmentObject var session: SessionManager
     
     var backgroundView: some View {
@@ -40,7 +42,6 @@ struct OnboardingView: View {
                                     if item == manager.items.first{
                                         withAnimation(.spring().delay(0.25)) {
                                             showBtn = true
-                                            isHapticsEnabled = true
                                             
                                         }
                                     }
@@ -50,22 +51,35 @@ struct OnboardingView: View {
                                     if showBtn {
                                         
                                         VStack{
-                                            Button(action: {
-                                                UIApplication.shared.open(URL(string: "\(UserDefaultKeys.moreNostrInfo)")!)
-                                            }) {
-                                                Text("Learn more")
-                                            }
-                                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                                            .frame(width: 150, height: 50)
-                                            .background(.white, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                                            .offset(y: 50)
-                                            .transition(.scale.combined(with: .opacity))
+//                                            Button(action: {
+//                                                self.showSafari = true
+//                                                HapticsManager.shared.hapticPlay(.light)
+//                                            }) {
+//                                                Text("Learn more")
+//                                            }
+//                                            .font(.system(size: 20, weight: .bold, design: .rounded))
+//                                            .frame(width: 150, height: 50)
+//                                            .background(.white, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+//                                            .offset(y: 50)
+//                                            .transition(.scale.combined(with: .opacity))
+//                                            .safariView(isPresented: $showSafari) {
+//                                                SafariView(
+//                                                    url: URL(string: userSettings.moreNostrInfo)!,
+//                                                    configuration: SafariView.Configuration(
+//                                                        entersReaderIfAvailable: false,
+//                                                        barCollapsingEnabled: true
+//                                                    )
+//                                                )
+//                                                .preferredBarAccentColor(.clear)
+//                                                .preferredControlAccentColor(.accentColor)
+//                                                .dismissButtonStyle(.done)
+//                                            }
+                                            
                                             
                                             
                                             Button("Continue") {
-    //                                            action()
                                                 session.completeOnboarding()
-                                                hapticPlay(.light)
+                                                HapticsManager.shared.hapticNotify(.success)
                                             }
                                             .font(.system(size: 20, weight: .bold, design: .rounded))
                                             .frame(width: 150, height: 50)
