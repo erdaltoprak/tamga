@@ -3,7 +3,7 @@
 A Nostr ID Management App for iOS! (read-only for now)
 
 <p align="center">
-    <img src="./Docs/nostrid_features.jpg" width="50%" height="50%" />
+    <img src="./Docs/nostrid_features.jpeg" width="50%" height="50%" />
 </p>
 
 ## Downloads 
