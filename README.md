@@ -13,8 +13,7 @@ You can join the [TestFlight Beta](https://erdaltoprak.github.io/nostrid/)
 ## Getting Started 
 
 - Get a Nostr Account (Public/Private Keys)
-- [Convert your public key to hex](https://damus.io/key) (if it starts with "npub")
-- Enter your public key and type the relevant relay to retreive the information 
+- Enter your private key
 
 ## NIPs Compliance
 
