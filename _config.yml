@@ -35,9 +35,9 @@ github_username                           : erdaltoprak
 # Feature List                            Edit, add or remove features to be presented.
 features                                  :
 
-  # - title                                 : GitHub Pages Jekyll Theme
-  #   description                           : Designed for GitHub Pages. Fork. Edit _config.yml. Upload screenshot/video. Push to gh-pages branch. Voilá!
-  #   fontawesome_icon_name                 : magic
+  - title                                 : Offline Ready
+    description                           : Browse your Nostr contacts without being always online.
+    fontawesome_icon_name                 : plane-up-slash
     
   - title                                 : Privacy First
     description                           : The app doesn't have any ads or trackers, all the content is retreived through open relays.

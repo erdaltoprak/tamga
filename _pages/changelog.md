@@ -10,6 +10,18 @@ Welcome to NostrID changelog.
 <br>
 
 ### `Latest`
+# **Version 1.0 (build 10)**
+This build is a big rewrite of the app with core data (persistent offline contacts). If the app has a black screen on migration 
+please install the app again.
+
+#### What's New
+- Persistent data available offline \n 
+- Search bar for contact
+- Multiple relay management
+- Damus partial integration with url schemes
+- New third icon
+- Private key (nsec/hex) handling
+
 # **Version 1.0 (build 9)**
 First release. The app is still buggy on the websocket side and loading/display consistency.
 
