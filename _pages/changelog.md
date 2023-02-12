@@ -10,7 +10,7 @@ Welcome to NostrID changelog.
 <br>
 
 ### `Latest`
-# **Version 1.0 (build 11)**
+# **Version 1.0 (build 11 & 12)**
 Profile view improvements!
 
 #### What's New
