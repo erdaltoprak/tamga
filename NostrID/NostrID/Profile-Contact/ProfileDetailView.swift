@@ -10,8 +10,9 @@ import SwiftUI
 struct ProfileDetailView: View {
     let profile : Profile
     var isProfileTab : Bool
+    @State private var showCopyAlert = false
+    @State private var animateGradient = true
 
-    
     var bannerView: some View {
         AsyncImage(
             url: URL(string: profile.profileBanner ?? ""),
@@ -69,20 +70,80 @@ struct ProfileDetailView: View {
                     Text("@\(profile.profileHandle ?? "")\n")
                         .font(.title3)
                     
-                    Text("\(profile.id ?? "")\n\n")
-                        .font(.footnote)
                     
-                    Text(profile.profileDescription ?? "")
-                        .font(.body)
-                        .lineLimit(nil)
-                        .multilineTextAlignment(.center)
+                    HStack(spacing: 10){
+                        Button(action: {
+                            if let url = URL(string: "https://nostr.band/?q=\(profile.id!)") {
+                                UIApplication.shared.open(url)
+                            }
+                        }) {
+                            Text("See profile")
+                                .padding(10.0)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10.0)
+                                        .stroke(lineWidth: 2.0)
+                                        .shadow(color: .blue, radius: 10.0)
+                                )
+                        }
+                        
+                        Button(action: {
+                            if let url = URL(string: "https://nostr.directory/p/\(profile.id!)") {
+                                UIApplication.shared.open(url)
+                            }
+                        }) {
+                            Text("Check profile")
+                                .padding(10.0)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10.0)
+                                        .stroke(lineWidth: 2.0)
+                                        .shadow(color: .blue, radius: 10.0)
+                                )
+                        }
+                    }
+                    .padding(.bottom)
+                    
+                    HStack{
+                        VStack{
+                            LinearGradient(colors: [.purple, .orange], startPoint: .topLeading, endPoint: .bottomTrailing)
+                                .hueRotation(.degrees(animateGradient ? 45 : 0))
+                                .frame(width: 350, height: 100, alignment: .leading)
+                                .mask(
+                                    Text("\(profile.id ?? "")\n\n")
+                                        .font(.body)
+                                        .frame(width: 350, height: 100, alignment: .leading)
+                                        .multilineTextAlignment(.center)
+                                )
+                                .onTapGesture {
+                                    UIPasteboard.general.string = self.profile.id
+                                    self.showCopyAlert = true
+                                    HapticsManager.shared.hapticNotify(.success)
+                                }
+                            
+                            Text(profile.profileDescription ?? "")
+                                .font(.body)
+                                .lineLimit(nil)
+                                .multilineTextAlignment(.center)
+                        }
+                    }
                 }
                 .padding()
                 Spacer()
-                
             }
         }
         .edgesIgnoringSafeArea(!isProfileTab ? .all : .init())
+        .overlay{
+            if showCopyAlert{
+                CheckmarkPopover()
+                    .transition(.scale.combined(with: .opacity))
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            withAnimation(.spring().delay(1)) {
+                                self.showCopyAlert = false
+                            }
+                        }
+                    }
+            }
+        }
     }
     
     

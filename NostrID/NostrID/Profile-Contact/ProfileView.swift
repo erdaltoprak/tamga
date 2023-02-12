@@ -16,7 +16,8 @@ struct ProfileView: View {
         sortDescriptors: [],
         predicate: NSPredicate(format: "isMainUser == %@", NSNumber(value: true))
     ) var profiles: FetchedResults<Profile>
-
+    @State private var showCopyAlert = false
+    @State private var animateGradient = true
     
     var bannerView: some View {
         AsyncImage(
@@ -60,39 +61,94 @@ struct ProfileView: View {
     
     
     var body: some View {
-        NavigationView{
-            ScrollView{
-                VStack{
-                    bannerView
-                    profilePictureView
-                        .offset(x: 0, y: -75)
-                        .padding(.bottom, -75)
+        ScrollView{
+            VStack{
+                bannerView
+                profilePictureView
+                    .offset(x: 0, y: -75)
+                    .padding(.bottom, -75)
+                
+                VStack(alignment: .center) {
+                    Text("\(profiles[0].profileName ?? "")")
+                        .font(.title)
+                        .fontWeight(.bold)
                     
-                    VStack(alignment: .center) {
-                        Text("\(profiles[0].profileName ?? "")")
-                            .font(.title)
-                            .fontWeight(.bold)
+                    Text("@\(profiles[0].profileHandle ?? "")\n")
+                        .font(.title3)
+                    
+                    
+                    HStack(spacing: 10){
+                        Button(action: {
+                            if let url = URL(string: "https://nostr.band/?q=\(profiles[0].id!)") {
+                                UIApplication.shared.open(url)
+                            }
+                        }) {
+                            Text("See profile")
+                                .padding(10.0)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10.0)
+                                        .stroke(lineWidth: 2.0)
+                                        .shadow(color: .blue, radius: 10.0)
+                                )
+                        }
                         
-                        Text("@\(profiles[0].profileHandle ?? "")\n")
-                            .font(.title3)
-                        
-                        Text("\(profiles[0].id ?? "")\n\n")
-                            .font(.footnote)
-                        
-                        Text(profiles[0].profileDescription ?? "")
-                            .font(.body)
-                            .lineLimit(nil)
-                            .multilineTextAlignment(.center)
+                        Button(action: {
+                            if let url = URL(string: "https://nostr.directory/p/\(profiles[0].id!)") {
+                                UIApplication.shared.open(url)
+                            }
+                        }) {
+                            Text("Check profile")   
+                                .padding(10.0)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10.0)
+                                        .stroke(lineWidth: 2.0)
+                                        .shadow(color: .blue, radius: 10.0)
+                                )
+                        }
                     }
-                    .padding()
-                    Spacer()
+                    .padding(.bottom)
                     
+                    HStack{
+                        VStack{
+                            LinearGradient(colors: [.purple, .orange], startPoint: .topLeading, endPoint: .bottomTrailing)
+                                .hueRotation(.degrees(animateGradient ? 45 : 0))
+                                .frame(width: 350, height: 100, alignment: .leading)
+                                .mask(
+                                    Text("\(profiles[0].id ?? "")\n\n")
+                                        .font(.body)
+                                        .frame(width: 350, height: 100, alignment: .leading)
+                                        .multilineTextAlignment(.center)
+                                )
+                                .onTapGesture {
+                                    UIPasteboard.general.string = self.profiles[0].id
+                                    self.showCopyAlert = true
+                                    HapticsManager.shared.hapticNotify(.success)
+                                }
+                            
+                            Text(profiles[0].profileDescription ?? "")
+                                .font(.body)
+                                .lineLimit(nil)
+                                .multilineTextAlignment(.center)
+                        }
+                    }
                 }
+                .padding()
+                Spacer()
             }
-            .edgesIgnoringSafeArea(!isProfileTab ? .all : .init())
-            .navigationTitle("Profile")
         }
-
+        .edgesIgnoringSafeArea(!isProfileTab ? .all : .init())
+        .overlay{
+            if showCopyAlert{
+                CheckmarkPopover()
+                    .transition(.scale.combined(with: .opacity))
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            withAnimation(.spring().delay(1)) {
+                                self.showCopyAlert = false
+                            }
+                        }
+                    }
+            }
+        }
     }
-    
 }
