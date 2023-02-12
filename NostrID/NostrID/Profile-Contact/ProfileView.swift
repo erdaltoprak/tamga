@@ -61,80 +61,83 @@ struct ProfileView: View {
     
     
     var body: some View {
-        ScrollView{
-            VStack{
-                bannerView
-                profilePictureView
-                    .offset(x: 0, y: -75)
-                    .padding(.bottom, -75)
-                
-                VStack(alignment: .center) {
-                    Text("\(profiles[0].profileName ?? "")")
-                        .font(.title)
-                        .fontWeight(.bold)
+        NavigationView{
+            ScrollView{
+                VStack{
+                    bannerView
+                    profilePictureView
+                        .offset(x: 0, y: -75)
+                        .padding(.bottom, -75)
                     
-                    Text("@\(profiles[0].profileHandle ?? "")\n")
-                        .font(.title3)
-                    
-                    
-                    HStack(spacing: 10){
-                        Button(action: {
-                            if let url = URL(string: "https://nostr.band/?q=\(profiles[0].id!)") {
-                                UIApplication.shared.open(url)
-                            }
-                        }) {
-                            Text("See profile")
-                                .padding(10.0)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10.0)
-                                        .stroke(lineWidth: 2.0)
-                                        .shadow(color: .blue, radius: 10.0)
-                                )
-                        }
+                    VStack(alignment: .center) {
+                        Text("\(profiles[0].profileName ?? "")")
+                            .font(.title)
+                            .fontWeight(.bold)
                         
-                        Button(action: {
-                            if let url = URL(string: "https://nostr.directory/p/\(profiles[0].id!)") {
-                                UIApplication.shared.open(url)
-                            }
-                        }) {
-                            Text("Check profile")
-                                .padding(10.0)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10.0)
-                                        .stroke(lineWidth: 2.0)
-                                        .shadow(color: .blue, radius: 10.0)
-                                )
-                        }
-                    }
-                    .padding(.bottom)
-                    
-                    HStack{
-                        VStack{
-                            LinearGradient(colors: [.purple, .orange], startPoint: .topLeading, endPoint: .bottomTrailing)
-                                .hueRotation(.degrees(animateGradient ? 45 : 0))
-                                .frame(width: 350, height: 100, alignment: .leading)
-                                .mask(
-                                    Text("\(profiles[0].id ?? "")\n\n")
-                                        .font(.body)
-                                        .frame(width: 350, height: 100, alignment: .leading)
-                                        .multilineTextAlignment(.center)
-                                )
-                                .onTapGesture {
-                                    UIPasteboard.general.string = self.profiles[0].id
-                                    self.showCopyAlert = true
-                                    HapticsManager.shared.hapticNotify(.success)
+                        Text("@\(profiles[0].profileHandle ?? "")\n")
+                            .font(.title3)
+                        
+                        
+                        HStack(spacing: 10){
+                            Button(action: {
+                                if let url = URL(string: "https://nostr.band/?q=\(profiles[0].id!)") {
+                                    UIApplication.shared.open(url)
                                 }
+                            }) {
+                                Text("See profile")
+                                    .padding(10.0)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10.0)
+                                            .stroke(lineWidth: 2.0)
+                                            .shadow(color: .blue, radius: 10.0)
+                                    )
+                            }
                             
-                            Text(profiles[0].profileDescription ?? "")
-                                .font(.body)
-                                .lineLimit(nil)
-                                .multilineTextAlignment(.center)
+                            Button(action: {
+                                if let url = URL(string: "https://nostr.directory/p/\(profiles[0].id!)") {
+                                    UIApplication.shared.open(url)
+                                }
+                            }) {
+                                Text("Check profile")
+                                    .padding(10.0)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10.0)
+                                            .stroke(lineWidth: 2.0)
+                                            .shadow(color: .blue, radius: 10.0)
+                                    )
+                            }
+                        }
+                        .padding(.bottom)
+                        
+                        HStack{
+                            VStack{
+                                LinearGradient(colors: [.purple, .orange], startPoint: .topLeading, endPoint: .bottomTrailing)
+                                    .hueRotation(.degrees(animateGradient ? 45 : 0))
+                                    .frame(width: 350, height: 80, alignment: .leading)
+                                    .mask(
+                                        Text("\(profiles[0].id ?? "")\n\n")
+                                            .font(.body)
+                                            .frame(width: 350, height: 80, alignment: .leading)
+                                            .multilineTextAlignment(.center)
+                                    )
+                                    .onTapGesture {
+                                        UIPasteboard.general.string = self.profiles[0].id
+                                        self.showCopyAlert = true
+                                        HapticsManager.shared.hapticNotify(.success)
+                                    }
+                                
+                                Text(profiles[0].profileDescription ?? "")
+                                    .font(.body)
+                                    .lineLimit(nil)
+                                    .multilineTextAlignment(.center)
+                            }
                         }
                     }
+//                    .padding()
+                    Spacer()
                 }
-                .padding()
-                Spacer()
             }
+            .navigationTitle("Profile")
         }
         .edgesIgnoringSafeArea(!isProfileTab ? .all : .init())
         .overlay{
