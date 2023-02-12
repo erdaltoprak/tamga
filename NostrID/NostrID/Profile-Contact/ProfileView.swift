@@ -97,7 +97,7 @@ struct ProfileView: View {
                                 UIApplication.shared.open(url)
                             }
                         }) {
-                            Text("Check profile")   
+                            Text("Check profile")
                                 .padding(10.0)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10.0)
