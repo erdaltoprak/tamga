@@ -10,6 +10,12 @@ Welcome to NostrID changelog.
 <br>
 
 ### `Latest`
+# **Version 1.0 (build 11)**
+Profile view improvements!
+
+#### What's New
+- Improved the profile view to include external links to check/see the nostr account
+
 # **Version 1.0 (build 10)**
 This build is a big rewrite of the app with core data (persistent offline contacts). If the app has a black screen on migration 
 please install the app again.
