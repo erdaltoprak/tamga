@@ -1,6 +1,6 @@
-# NostrID
+# Tamga
 
-A Nostr ID Management App for iOS! (read-only for now)
+An offline first nostr contact & profile manager for iOS!
 
 <p align="center">
     <img src="./Docs/nostrid_features.jpeg" width="50%" height="50%" />
@@ -8,7 +8,7 @@ A Nostr ID Management App for iOS! (read-only for now)
 
 ## Downloads 
 
-You can join the [TestFlight Beta](https://erdaltoprak.github.io/nostrid/)
+You can join the [TestFlight Beta](https://erdaltoprak.github.io/tamga/)
 
 ## Getting Started 
 
@@ -31,4 +31,4 @@ All issue reports, feature requests, pull requests and GitHub stars are welcomed
 
 ## License
 
-[GLPv3](https://github.com/erdaltoprak/nostrid/blob/main/LICENSE)
+[GLPv3](https://github.com/erdaltoprak/tamga/blob/main/LICENSE)
