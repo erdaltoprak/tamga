@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="category">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="isMainUser" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isOfflineProfile" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastProfileUpdate" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="profileBanner" optional="YES" attributeType="String"/>
+        <attribute name="profileDescription" optional="YES" attributeType="String"/>
+        <attribute name="profileHandle" optional="YES" attributeType="String"/>
+        <attribute name="profileLud06" optional="YES" attributeType="String"/>
+        <attribute name="profileLud16" optional="YES" attributeType="String"/>
+        <attribute name="profileName" optional="YES" attributeType="String"/>
+        <attribute name="profileNip05" optional="YES" attributeType="String"/>
+        <attribute name="profilePicture" optional="YES" attributeType="String"/>
+        <attribute name="profileRelays" optional="YES" attributeType="String"/>
+        <attribute name="profileWebsite" optional="YES" attributeType="String"/>
+    </entity>
+</model>
