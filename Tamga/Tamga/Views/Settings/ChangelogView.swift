@@ -10,10 +10,22 @@ import SwiftUI
 struct ChangelogView: View {
     var body: some View {
         List{
-            Text("Added back the \"profile\" title in the profile tab")
-            Text("Improved the profile view to include external links to check/see the nostr account")
-            Text("Persistent data available offline \nSearch bar for contact \nMultiple relay management \nDamus partial integration with url schemes \nNew third icon \nPrivate key (nsec/hex) handling")
-            Text("First Testflight Release")
+            Section{
+                Text("🆕 1.0 (build 1)")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Text("List of the current features:")
+                Text("easy onboarding")
+                Text("nsec key conversion")
+                Text("key storage in keychain")
+                Text("contacts saved offline")
+                Text("contacts list and detailed view")
+                Text("contacts search by handle")
+                Text("qr code generation for contacts")
+                Text("contact quick actions submenu in toolbar")
+                
+            }
+            .listStyle(.insetGrouped)
         }
         .navigationTitle("Changelog")
         
