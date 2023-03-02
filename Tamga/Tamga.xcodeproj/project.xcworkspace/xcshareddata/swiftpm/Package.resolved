@@ -1,0 +1,50 @@
+{
+  "pins" : [
+    {
+      "identity" : "confettiswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/simibac/ConfettiSwiftUI",
+      "state" : {
+        "branch" : "master",
+        "revision" : "2a5797c5ada9aaca77338e7df1b1913cea909994"
+      }
+    },
+    {
+      "identity" : "fluidgradient",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Cindori/FluidGradient",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9ddda4cf23671ef0228e88681ec6210cb3e0d7f7"
+      }
+    },
+    {
+      "identity" : "keychainaccess",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kishikawakatsumi/KeychainAccess",
+      "state" : {
+        "branch" : "master",
+        "revision" : "ecb18d8ce4d88277cc4fb103973352d91e18c535"
+      }
+    },
+    {
+      "identity" : "secp256k1.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GigaBitcoin/secp256k1.swift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "f2c8d83d1e81836696d76f85dbc2bbb64970ca01"
+      }
+    },
+    {
+      "identity" : "starscream",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daltoniam/Starscream",
+      "state" : {
+        "branch" : "master",
+        "revision" : "c68359159dcf0b5de9b536b9a959e9e435e968d3"
+      }
+    }
+  ],
+  "version" : 2
+}

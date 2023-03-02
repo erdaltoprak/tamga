@@ -1,0 +1,652 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A10E12B29AFDAD900D0DEA4 /* TamgaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10E12A29AFDAD900D0DEA4 /* TamgaApp.swift */; };
+		9A10E12F29AFDADB00D0DEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A10E12E29AFDADB00D0DEA4 /* Assets.xcassets */; };
+		9A10E13229AFDADB00D0DEA4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A10E13129AFDADB00D0DEA4 /* Preview Assets.xcassets */; };
+		9A2BBC9F29AFDCBA00C0136B /* AppCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A2BBC9D29AFDCBA00C0136B /* AppCoreData.xcdatamodeld */; };
+		9ABCC18729AFDD1E00B066CB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC17C29AFDD1C00B066CB /* HomeView.swift */; };
+		9ABCC18929AFDD1E00B066CB /* AppCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC17E29AFDD1D00B066CB /* AppCoreData.swift */; };
+		9ABCC19029AFDD7200B066CB /* TamgaMainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC18F29AFDD7200B066CB /* TamgaMainApp.swift */; };
+		9ABCC19629AFDE6800B066CB /* NostrRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC19329AFDE6800B066CB /* NostrRelay.swift */; };
+		9ABCC19729AFDE6800B066CB /* NostrEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC19229AFDE6800B066CB /* NostrEvent.swift */; };
+		9ABCC19829AFDE6800B066CB /* NostrRelayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC19429AFDE6800B066CB /* NostrRelayManager.swift */; };
+		9ABCC19929AFDE6800B066CB /* NostrReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC19529AFDE6800B066CB /* NostrReq.swift */; };
+		9ABCC19A29AFDE6800B066CB /* NostrProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC19129AFDE6700B066CB /* NostrProfile.swift */; };
+		9ABCC1A029AFDE7000B066CB /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC19B29AFDE6F00B066CB /* ContactListView.swift */; };
+		9ABCC1A129AFDE7000B066CB /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC19C29AFDE6F00B066CB /* ContactView.swift */; };
+		9ABCC1A229AFDE7000B066CB /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC19E29AFDE6F00B066CB /* AddContactView.swift */; };
+		9ABCC1A329AFDE7000B066CB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC19F29AFDE7000B066CB /* ProfileView.swift */; };
+		9ABCC1A429AFDE7000B066CB /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC19D29AFDE6F00B066CB /* ContactDetailView.swift */; };
+		9ABCC1AA29AFDE7600B066CB /* KeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1A629AFDE7600B066CB /* KeysView.swift */; };
+		9ABCC1AB29AFDE7600B066CB /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1A529AFDE7500B066CB /* AppIconView.swift */; };
+		9ABCC1AC29AFDE7600B066CB /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1A929AFDE7600B066CB /* HelpView.swift */; };
+		9ABCC1AD29AFDE7600B066CB /* RelaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1A729AFDE7600B066CB /* RelaysView.swift */; };
+		9ABCC1AE29AFDE7600B066CB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1A829AFDE7600B066CB /* SettingsView.swift */; };
+		9ABCC1BA29AFDE7C00B066CB /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1B429AFDE7B00B066CB /* UserSettings.swift */; };
+		9ABCC1BB29AFDE7C00B066CB /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1AF29AFDE7A00B066CB /* HapticsManager.swift */; };
+		9ABCC1BC29AFDE7C00B066CB /* NostrKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1B629AFDE7B00B066CB /* NostrKey.swift */; };
+		9ABCC1BD29AFDE7C00B066CB /* SFSafariViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1B129AFDE7B00B066CB /* SFSafariViewWrapper.swift */; };
+		9ABCC1BF29AFDE7C00B066CB /* LoadingTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1B229AFDE7B00B066CB /* LoadingTimeline.swift */; };
+		9ABCC1C029AFDE7C00B066CB /* RedactedLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1B329AFDE7B00B066CB /* RedactedLoading.swift */; };
+		9ABCC1C129AFDE7C00B066CB /* CheckmarkPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1B529AFDE7B00B066CB /* CheckmarkPopover.swift */; };
+		9ABCC1C229AFDE7C00B066CB /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1B829AFDE7C00B066CB /* SessionManager.swift */; };
+		9ABCC1C729AFDE8200B066CB /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1C429AFDE8200B066CB /* OnboardingManager.swift */; };
+		9ABCC1C829AFDE8200B066CB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1C329AFDE8200B066CB /* LoginView.swift */; };
+		9ABCC1C929AFDE8200B066CB /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1C529AFDE8200B066CB /* OnboardingView.swift */; };
+		9ABCC1CA29AFDE8200B066CB /* OnboardingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1C629AFDE8200B066CB /* OnboardingInfoView.swift */; };
+		9ABCC1CE29AFDE8B00B066CB /* ThanksToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1CD29AFDE8B00B066CB /* ThanksToView.swift */; };
+		9ABCC1CF29AFDE8B00B066CB /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1CB29AFDE8A00B066CB /* AboutView.swift */; };
+		9ABCC1D029AFDE8B00B066CB /* ChangelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1CC29AFDE8B00B066CB /* ChangelogView.swift */; };
+		9ABCC1D829AFE02000B066CB /* QrCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1D729AFE02000B066CB /* QrCodeView.swift */; };
+		9ABCC1DB29AFE03200B066CB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 9ABCC1DA29AFE03200B066CB /* KeychainAccess */; };
+		9ABCC1DE29AFE03D00B066CB /* FluidGradient in Frameworks */ = {isa = PBXBuildFile; productRef = 9ABCC1DD29AFE03D00B066CB /* FluidGradient */; };
+		9ABCC1E129AFE04B00B066CB /* secp256k1 in Frameworks */ = {isa = PBXBuildFile; productRef = 9ABCC1E029AFE04B00B066CB /* secp256k1 */; };
+		9ABCC1E429AFE05900B066CB /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9ABCC1E329AFE05900B066CB /* ConfettiSwiftUI */; };
+		9ABCC1E729AFE06400B066CB /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 9ABCC1E629AFE06400B066CB /* Starscream */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9A10E12729AFDAD900D0DEA4 /* Tamga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamga.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A10E12A29AFDAD900D0DEA4 /* TamgaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamgaApp.swift; sourceTree = "<group>"; };
+		9A10E12E29AFDADB00D0DEA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A10E13129AFDADB00D0DEA4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9A10E13829AFDC5900D0DEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9A2BBC9E29AFDCBA00C0136B /* AppCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppCoreData.xcdatamodel; sourceTree = "<group>"; };
+		9ABCC17C29AFDD1C00B066CB /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9ABCC17E29AFDD1D00B066CB /* AppCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoreData.swift; sourceTree = "<group>"; };
+		9ABCC18F29AFDD7200B066CB /* TamgaMainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamgaMainApp.swift; sourceTree = "<group>"; };
+		9ABCC19129AFDE6700B066CB /* NostrProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NostrProfile.swift; sourceTree = "<group>"; };
+		9ABCC19229AFDE6800B066CB /* NostrEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NostrEvent.swift; sourceTree = "<group>"; };
+		9ABCC19329AFDE6800B066CB /* NostrRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NostrRelay.swift; sourceTree = "<group>"; };
+		9ABCC19429AFDE6800B066CB /* NostrRelayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NostrRelayManager.swift; sourceTree = "<group>"; };
+		9ABCC19529AFDE6800B066CB /* NostrReq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NostrReq.swift; sourceTree = "<group>"; };
+		9ABCC19B29AFDE6F00B066CB /* ContactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
+		9ABCC19C29AFDE6F00B066CB /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		9ABCC19D29AFDE6F00B066CB /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
+		9ABCC19E29AFDE6F00B066CB /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
+		9ABCC19F29AFDE7000B066CB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		9ABCC1A529AFDE7500B066CB /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
+		9ABCC1A629AFDE7600B066CB /* KeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysView.swift; sourceTree = "<group>"; };
+		9ABCC1A729AFDE7600B066CB /* RelaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaysView.swift; sourceTree = "<group>"; };
+		9ABCC1A829AFDE7600B066CB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9ABCC1A929AFDE7600B066CB /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		9ABCC1AF29AFDE7A00B066CB /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		9ABCC1B129AFDE7B00B066CB /* SFSafariViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariViewWrapper.swift; sourceTree = "<group>"; };
+		9ABCC1B229AFDE7B00B066CB /* LoadingTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTimeline.swift; sourceTree = "<group>"; };
+		9ABCC1B329AFDE7B00B066CB /* RedactedLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedactedLoading.swift; sourceTree = "<group>"; };
+		9ABCC1B429AFDE7B00B066CB /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		9ABCC1B529AFDE7B00B066CB /* CheckmarkPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkPopover.swift; sourceTree = "<group>"; };
+		9ABCC1B629AFDE7B00B066CB /* NostrKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NostrKey.swift; sourceTree = "<group>"; };
+		9ABCC1B829AFDE7C00B066CB /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		9ABCC1C329AFDE8200B066CB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9ABCC1C429AFDE8200B066CB /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
+		9ABCC1C529AFDE8200B066CB /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		9ABCC1C629AFDE8200B066CB /* OnboardingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInfoView.swift; sourceTree = "<group>"; };
+		9ABCC1CB29AFDE8A00B066CB /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		9ABCC1CC29AFDE8B00B066CB /* ChangelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogView.swift; sourceTree = "<group>"; };
+		9ABCC1CD29AFDE8B00B066CB /* ThanksToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksToView.swift; sourceTree = "<group>"; };
+		9ABCC1D729AFE02000B066CB /* QrCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QrCodeView.swift; path = "../../../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Views/Contacts/QrCodeView.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9A10E12429AFDAD900D0DEA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ABCC1DB29AFE03200B066CB /* KeychainAccess in Frameworks */,
+				9ABCC1E129AFE04B00B066CB /* secp256k1 in Frameworks */,
+				9ABCC1E429AFE05900B066CB /* ConfettiSwiftUI in Frameworks */,
+				9ABCC1E729AFE06400B066CB /* Starscream in Frameworks */,
+				9ABCC1DE29AFE03D00B066CB /* FluidGradient in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9A10E11E29AFDAD900D0DEA4 = {
+			isa = PBXGroup;
+			children = (
+				9A10E12929AFDAD900D0DEA4 /* Tamga */,
+				9A10E12829AFDAD900D0DEA4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9A10E12829AFDAD900D0DEA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A10E12729AFDAD900D0DEA4 /* Tamga.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A10E12929AFDAD900D0DEA4 /* Tamga */ = {
+			isa = PBXGroup;
+			children = (
+				9A10E13829AFDC5900D0DEA4 /* Info.plist */,
+				9A10E12A29AFDAD900D0DEA4 /* TamgaApp.swift */,
+				9ABCC18F29AFDD7200B066CB /* TamgaMainApp.swift */,
+				9ABCC17C29AFDD1C00B066CB /* HomeView.swift */,
+				9A2BBC9D29AFDCBA00C0136B /* AppCoreData.xcdatamodeld */,
+				9ABCC17E29AFDD1D00B066CB /* AppCoreData.swift */,
+				9ABCC1D129AFDEDE00B066CB /* Utils */,
+				9ABCC1D229AFDF3D00B066CB /* Nostr */,
+				9ABCC1D329AFDF6600B066CB /* Views */,
+				9A10E13029AFDADB00D0DEA4 /* Preview Content */,
+				9A10E12E29AFDADB00D0DEA4 /* Assets.xcassets */,
+			);
+			path = Tamga;
+			sourceTree = "<group>";
+		};
+		9A10E13029AFDADB00D0DEA4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9A10E13129AFDADB00D0DEA4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9ABCC1D129AFDEDE00B066CB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9ABCC1AF29AFDE7A00B066CB /* HapticsManager.swift */,
+				9ABCC1B829AFDE7C00B066CB /* SessionManager.swift */,
+				9ABCC1B529AFDE7B00B066CB /* CheckmarkPopover.swift */,
+				9ABCC1B229AFDE7B00B066CB /* LoadingTimeline.swift */,
+				9ABCC1B329AFDE7B00B066CB /* RedactedLoading.swift */,
+				9ABCC1B429AFDE7B00B066CB /* UserSettings.swift */,
+				9ABCC1B129AFDE7B00B066CB /* SFSafariViewWrapper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9ABCC1D229AFDF3D00B066CB /* Nostr */ = {
+			isa = PBXGroup;
+			children = (
+				9ABCC1B629AFDE7B00B066CB /* NostrKey.swift */,
+				9ABCC19229AFDE6800B066CB /* NostrEvent.swift */,
+				9ABCC19129AFDE6700B066CB /* NostrProfile.swift */,
+				9ABCC19329AFDE6800B066CB /* NostrRelay.swift */,
+				9ABCC19429AFDE6800B066CB /* NostrRelayManager.swift */,
+				9ABCC19529AFDE6800B066CB /* NostrReq.swift */,
+			);
+			path = Nostr;
+			sourceTree = "<group>";
+		};
+		9ABCC1D329AFDF6600B066CB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9ABCC1D429AFDF7100B066CB /* Onboarding */,
+				9ABCC1D529AFDF8100B066CB /* Contacts */,
+				9ABCC1D629AFDF9900B066CB /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9ABCC1D429AFDF7100B066CB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9ABCC1C329AFDE8200B066CB /* LoginView.swift */,
+				9ABCC1C629AFDE8200B066CB /* OnboardingInfoView.swift */,
+				9ABCC1C429AFDE8200B066CB /* OnboardingManager.swift */,
+				9ABCC1C529AFDE8200B066CB /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9ABCC1D529AFDF8100B066CB /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				9ABCC19E29AFDE6F00B066CB /* AddContactView.swift */,
+				9ABCC19C29AFDE6F00B066CB /* ContactView.swift */,
+				9ABCC19B29AFDE6F00B066CB /* ContactListView.swift */,
+				9ABCC19D29AFDE6F00B066CB /* ContactDetailView.swift */,
+				9ABCC19F29AFDE7000B066CB /* ProfileView.swift */,
+				9ABCC1D729AFE02000B066CB /* QrCodeView.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		9ABCC1D629AFDF9900B066CB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9ABCC1A529AFDE7500B066CB /* AppIconView.swift */,
+				9ABCC1A929AFDE7600B066CB /* HelpView.swift */,
+				9ABCC1A629AFDE7600B066CB /* KeysView.swift */,
+				9ABCC1A729AFDE7600B066CB /* RelaysView.swift */,
+				9ABCC1A829AFDE7600B066CB /* SettingsView.swift */,
+				9ABCC1CB29AFDE8A00B066CB /* AboutView.swift */,
+				9ABCC1CC29AFDE8B00B066CB /* ChangelogView.swift */,
+				9ABCC1CD29AFDE8B00B066CB /* ThanksToView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9A10E12629AFDAD900D0DEA4 /* Tamga */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A10E13529AFDADB00D0DEA4 /* Build configuration list for PBXNativeTarget "Tamga" */;
+			buildPhases = (
+				9A10E12329AFDAD900D0DEA4 /* Sources */,
+				9A10E12429AFDAD900D0DEA4 /* Frameworks */,
+				9A10E12529AFDAD900D0DEA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tamga;
+			packageProductDependencies = (
+				9ABCC1DA29AFE03200B066CB /* KeychainAccess */,
+				9ABCC1DD29AFE03D00B066CB /* FluidGradient */,
+				9ABCC1E029AFE04B00B066CB /* secp256k1 */,
+				9ABCC1E329AFE05900B066CB /* ConfettiSwiftUI */,
+				9ABCC1E629AFE06400B066CB /* Starscream */,
+			);
+			productName = Tamga;
+			productReference = 9A10E12729AFDAD900D0DEA4 /* Tamga.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9A10E11F29AFDAD900D0DEA4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					9A10E12629AFDAD900D0DEA4 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 9A10E12229AFDAD900D0DEA4 /* Build configuration list for PBXProject "Tamga" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9A10E11E29AFDAD900D0DEA4;
+			packageReferences = (
+				9ABCC1D929AFE03200B066CB /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				9ABCC1DC29AFE03D00B066CB /* XCRemoteSwiftPackageReference "FluidGradient" */,
+				9ABCC1DF29AFE04B00B066CB /* XCRemoteSwiftPackageReference "secp256k1" */,
+				9ABCC1E229AFE05900B066CB /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+				9ABCC1E529AFE06400B066CB /* XCRemoteSwiftPackageReference "Starscream" */,
+			);
+			productRefGroup = 9A10E12829AFDAD900D0DEA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A10E12629AFDAD900D0DEA4 /* Tamga */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9A10E12529AFDAD900D0DEA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A10E13229AFDADB00D0DEA4 /* Preview Assets.xcassets in Resources */,
+				9A10E12F29AFDADB00D0DEA4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9A10E12329AFDAD900D0DEA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ABCC1AE29AFDE7600B066CB /* SettingsView.swift in Sources */,
+				9ABCC19629AFDE6800B066CB /* NostrRelay.swift in Sources */,
+				9ABCC18929AFDD1E00B066CB /* AppCoreData.swift in Sources */,
+				9ABCC1D029AFDE8B00B066CB /* ChangelogView.swift in Sources */,
+				9ABCC1D829AFE02000B066CB /* QrCodeView.swift in Sources */,
+				9ABCC1AD29AFDE7600B066CB /* RelaysView.swift in Sources */,
+				9A2BBC9F29AFDCBA00C0136B /* AppCoreData.xcdatamodeld in Sources */,
+				9ABCC1BF29AFDE7C00B066CB /* LoadingTimeline.swift in Sources */,
+				9ABCC1A029AFDE7000B066CB /* ContactListView.swift in Sources */,
+				9ABCC1BB29AFDE7C00B066CB /* HapticsManager.swift in Sources */,
+				9ABCC1A129AFDE7000B066CB /* ContactView.swift in Sources */,
+				9ABCC1A229AFDE7000B066CB /* AddContactView.swift in Sources */,
+				9ABCC19729AFDE6800B066CB /* NostrEvent.swift in Sources */,
+				9ABCC1A329AFDE7000B066CB /* ProfileView.swift in Sources */,
+				9ABCC19829AFDE6800B066CB /* NostrRelayManager.swift in Sources */,
+				9ABCC1CA29AFDE8200B066CB /* OnboardingInfoView.swift in Sources */,
+				9ABCC19A29AFDE6800B066CB /* NostrProfile.swift in Sources */,
+				9ABCC1C929AFDE8200B066CB /* OnboardingView.swift in Sources */,
+				9ABCC1C729AFDE8200B066CB /* OnboardingManager.swift in Sources */,
+				9ABCC1AC29AFDE7600B066CB /* HelpView.swift in Sources */,
+				9ABCC1C029AFDE7C00B066CB /* RedactedLoading.swift in Sources */,
+				9ABCC1BD29AFDE7C00B066CB /* SFSafariViewWrapper.swift in Sources */,
+				9ABCC1C129AFDE7C00B066CB /* CheckmarkPopover.swift in Sources */,
+				9ABCC1C229AFDE7C00B066CB /* SessionManager.swift in Sources */,
+				9ABCC1BC29AFDE7C00B066CB /* NostrKey.swift in Sources */,
+				9ABCC18729AFDD1E00B066CB /* HomeView.swift in Sources */,
+				9ABCC1BA29AFDE7C00B066CB /* UserSettings.swift in Sources */,
+				9ABCC1CF29AFDE8B00B066CB /* AboutView.swift in Sources */,
+				9ABCC1A429AFDE7000B066CB /* ContactDetailView.swift in Sources */,
+				9ABCC1CE29AFDE8B00B066CB /* ThanksToView.swift in Sources */,
+				9ABCC1AA29AFDE7600B066CB /* KeysView.swift in Sources */,
+				9ABCC19029AFDD7200B066CB /* TamgaMainApp.swift in Sources */,
+				9A10E12B29AFDAD900D0DEA4 /* TamgaApp.swift in Sources */,
+				9ABCC1C829AFDE8200B066CB /* LoginView.swift in Sources */,
+				9ABCC19929AFDE6800B066CB /* NostrReq.swift in Sources */,
+				9ABCC1AB29AFDE7600B066CB /* AppIconView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9A10E13329AFDADB00D0DEA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9A10E13429AFDADB00D0DEA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9A10E13629AFDADB00D0DEA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon1;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Tamga/Preview Content\"";
+				DEVELOPMENT_TEAM = A2NYRQCGYA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tamga/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Tamga;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.erdaltoprak.tamga;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9A10E13729AFDADB00D0DEA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon1;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Tamga/Preview Content\"";
+				DEVELOPMENT_TEAM = A2NYRQCGYA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tamga/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Tamga;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.erdaltoprak.tamga;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9A10E12229AFDAD900D0DEA4 /* Build configuration list for PBXProject "Tamga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A10E13329AFDADB00D0DEA4 /* Debug */,
+				9A10E13429AFDADB00D0DEA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A10E13529AFDADB00D0DEA4 /* Build configuration list for PBXNativeTarget "Tamga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A10E13629AFDADB00D0DEA4 /* Debug */,
+				9A10E13729AFDADB00D0DEA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9ABCC1D929AFE03200B066CB /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		9ABCC1DC29AFE03D00B066CB /* XCRemoteSwiftPackageReference "FluidGradient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Cindori/FluidGradient";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		9ABCC1DF29AFE04B00B066CB /* XCRemoteSwiftPackageReference "secp256k1" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GigaBitcoin/secp256k1.swift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		9ABCC1E229AFE05900B066CB /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		9ABCC1E529AFE06400B066CB /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9ABCC1DA29AFE03200B066CB /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9ABCC1D929AFE03200B066CB /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		9ABCC1DD29AFE03D00B066CB /* FluidGradient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9ABCC1DC29AFE03D00B066CB /* XCRemoteSwiftPackageReference "FluidGradient" */;
+			productName = FluidGradient;
+		};
+		9ABCC1E029AFE04B00B066CB /* secp256k1 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9ABCC1DF29AFE04B00B066CB /* XCRemoteSwiftPackageReference "secp256k1" */;
+			productName = secp256k1;
+		};
+		9ABCC1E329AFE05900B066CB /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9ABCC1E229AFE05900B066CB /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+		9ABCC1E629AFE06400B066CB /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9ABCC1E529AFE06400B066CB /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		9A2BBC9D29AFDCBA00C0136B /* AppCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9A2BBC9E29AFDCBA00C0136B /* AppCoreData.xcdatamodel */,
+			);
+			currentVersion = 9A2BBC9E29AFDCBA00C0136B /* AppCoreData.xcdatamodel */;
+			path = AppCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9A10E11F29AFDAD900D0DEA4 /* Project object */;
+}

@@ -14,7 +14,14 @@ Welcome to Tamga changelog.
 
 
 #### What's New
-- Everything!
+- easy onboarding
+- nsec key conversion
+- key storage in keychain
+- contacts saved offline
+- contacts list and detailed view
+- contacts search by handle
+- qr code generation for contacts
+- contact quick actions submenu in toolbar
 
 
 
