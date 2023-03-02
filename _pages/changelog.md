@@ -5,18 +5,21 @@ include_in_header: true
 ---
 
 # Changelog
-Welcome to NostrID changelog.
+Welcome to Tamga changelog.
 
 <br>
 
 ### `Latest`
-# **Version 1.0 (build 11 & 12)**
-Profile view improvements!
+# **Version 1.0 (build 1)**
+
 
 #### What's New
-- Improved the profile view to include external links to check/see the nostr account
+- Everything!
 
-# **Version 1.0 (build 10)**
+
+
+
+<!-- # **Version 1.0 (build 10)**
 This build is a big rewrite of the app with core data (persistent offline contacts). If the app has a black screen on migration 
 please install the app again.
 
@@ -34,7 +37,7 @@ First release. The app is still buggy on the websocket side and loading/display 
 #### What's New
 - Everything!
 
-<br>
+<br> -->
 
 <!-- ### **Version 2.1** -->
 <!-- Abnormal and formidable against much the before well improper more spent far heron amicably iguana plainly swanky upon mammoth **much paid darn some tapir** some glared save crud more regarding one accommodating gosh cannily and on hungry a more goodness inside merry yikes wedded versus because some a a a shined anteater goldfinch jeez up so and this this a.
