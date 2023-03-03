@@ -11,7 +11,7 @@ struct ChangelogView: View {
     var body: some View {
         List{
             Section{
-                Text("🆕 1.0 (build 1)")
+                Text("🆕 1.0 (build 4)")
                     .font(.title)
                     .fontWeight(.bold)
                 Text("List of the current features:")

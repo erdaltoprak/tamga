@@ -132,7 +132,7 @@ struct ProfileView: View {
                                     .multilineTextAlignment(.center)
                             )
                             .onTapGesture {
-                                UIPasteboard.general.string = self.profiles[0].id
+                                UIPasteboard.general.string = NostrKey.shared.bech32_pubkey(self.profiles[0].id ?? "")
                                 self.showCopyAlert = true
                                 HapticsManager.shared.hapticNotify(.success)
                             }

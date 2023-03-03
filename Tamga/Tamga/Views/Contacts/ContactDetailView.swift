@@ -107,7 +107,7 @@ struct ContactDetailView: View {
                                 .multilineTextAlignment(.center)
                         )
                         .onTapGesture {
-                            UIPasteboard.general.string = self.profile.id
+                            UIPasteboard.general.string = NostrKey.shared.bech32_pubkey(self.profile.id  ?? "")
                             self.showCopyAlert = true
                             HapticsManager.shared.hapticNotify(.success)
                         }
