@@ -10,7 +10,7 @@ Welcome to Tamga changelog.
 <br>
 
 ### `Latest`
-# **Version 1.0 (build 1)**
+# **Version 1.0 (build 4)**
 
 
 #### What's New
