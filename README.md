@@ -6,7 +6,7 @@ An offline first nostr contact & profile manager for iOS!
 
 ## Downloads 
 
-You can join the [TestFlight Beta](https://erdaltoprak.github.io/tamga/)
+You can join the [TestFlight Beta](https://tamga.pages.dev)
 
 ## Getting Started 
 
