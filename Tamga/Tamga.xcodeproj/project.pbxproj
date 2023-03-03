@@ -11,6 +11,7 @@
 		9A10E12F29AFDADB00D0DEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A10E12E29AFDADB00D0DEA4 /* Assets.xcassets */; };
 		9A10E13229AFDADB00D0DEA4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A10E13129AFDADB00D0DEA4 /* Preview Assets.xcassets */; };
 		9A2BBC9F29AFDCBA00C0136B /* AppCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A2BBC9D29AFDCBA00C0136B /* AppCoreData.xcdatamodeld */; };
+		9A902CF529B2453100783325 /* QrCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A902CF429B2453100783325 /* QrCodeView.swift */; };
 		9ABCC18729AFDD1E00B066CB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC17C29AFDD1C00B066CB /* HomeView.swift */; };
 		9ABCC18929AFDD1E00B066CB /* AppCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC17E29AFDD1D00B066CB /* AppCoreData.swift */; };
 		9ABCC19029AFDD7200B066CB /* TamgaMainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC18F29AFDD7200B066CB /* TamgaMainApp.swift */; };
@@ -44,7 +45,6 @@
 		9ABCC1CE29AFDE8B00B066CB /* ThanksToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1CD29AFDE8B00B066CB /* ThanksToView.swift */; };
 		9ABCC1CF29AFDE8B00B066CB /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1CB29AFDE8A00B066CB /* AboutView.swift */; };
 		9ABCC1D029AFDE8B00B066CB /* ChangelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1CC29AFDE8B00B066CB /* ChangelogView.swift */; };
-		9ABCC1D829AFE02000B066CB /* QrCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC1D729AFE02000B066CB /* QrCodeView.swift */; };
 		9ABCC1DB29AFE03200B066CB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 9ABCC1DA29AFE03200B066CB /* KeychainAccess */; };
 		9ABCC1DE29AFE03D00B066CB /* FluidGradient in Frameworks */ = {isa = PBXBuildFile; productRef = 9ABCC1DD29AFE03D00B066CB /* FluidGradient */; };
 		9ABCC1E129AFE04B00B066CB /* secp256k1 in Frameworks */ = {isa = PBXBuildFile; productRef = 9ABCC1E029AFE04B00B066CB /* secp256k1 */; };
@@ -59,6 +59,7 @@
 		9A10E13129AFDADB00D0DEA4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9A10E13829AFDC5900D0DEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9A2BBC9E29AFDCBA00C0136B /* AppCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppCoreData.xcdatamodel; sourceTree = "<group>"; };
+		9A902CF429B2453100783325 /* QrCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeView.swift; sourceTree = "<group>"; };
 		9ABCC17C29AFDD1C00B066CB /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9ABCC17E29AFDD1D00B066CB /* AppCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoreData.swift; sourceTree = "<group>"; };
 		9ABCC18F29AFDD7200B066CB /* TamgaMainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamgaMainApp.swift; sourceTree = "<group>"; };
@@ -92,7 +93,6 @@
 		9ABCC1CB29AFDE8A00B066CB /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		9ABCC1CC29AFDE8B00B066CB /* ChangelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogView.swift; sourceTree = "<group>"; };
 		9ABCC1CD29AFDE8B00B066CB /* ThanksToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksToView.swift; sourceTree = "<group>"; };
-		9ABCC1D729AFE02000B066CB /* QrCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QrCodeView.swift; path = "../../../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Views/Contacts/QrCodeView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +209,7 @@
 				9ABCC19B29AFDE6F00B066CB /* ContactListView.swift */,
 				9ABCC19D29AFDE6F00B066CB /* ContactDetailView.swift */,
 				9ABCC19F29AFDE7000B066CB /* ProfileView.swift */,
-				9ABCC1D729AFE02000B066CB /* QrCodeView.swift */,
+				9A902CF429B2453100783325 /* QrCodeView.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -317,7 +317,6 @@
 				9ABCC19629AFDE6800B066CB /* NostrRelay.swift in Sources */,
 				9ABCC18929AFDD1E00B066CB /* AppCoreData.swift in Sources */,
 				9ABCC1D029AFDE8B00B066CB /* ChangelogView.swift in Sources */,
-				9ABCC1D829AFE02000B066CB /* QrCodeView.swift in Sources */,
 				9ABCC1AD29AFDE7600B066CB /* RelaysView.swift in Sources */,
 				9A2BBC9F29AFDCBA00C0136B /* AppCoreData.xcdatamodeld in Sources */,
 				9ABCC1BF29AFDE7C00B066CB /* LoadingTimeline.swift in Sources */,
@@ -346,6 +345,7 @@
 				9ABCC1AA29AFDE7600B066CB /* KeysView.swift in Sources */,
 				9ABCC19029AFDD7200B066CB /* TamgaMainApp.swift in Sources */,
 				9A10E12B29AFDAD900D0DEA4 /* TamgaApp.swift in Sources */,
+				9A902CF529B2453100783325 /* QrCodeView.swift in Sources */,
 				9ABCC1C829AFDE8200B066CB /* LoginView.swift in Sources */,
 				9ABCC19929AFDE6800B066CB /* NostrReq.swift in Sources */,
 				9ABCC1AB29AFDE7600B066CB /* AppIconView.swift in Sources */,
