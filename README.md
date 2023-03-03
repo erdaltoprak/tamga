@@ -2,7 +2,7 @@
 
 An offline first nostr contact & profile manager for iOS!
 
-<![](https://github.com/erdaltoprak/tamga/blob/landing-page/assets/tamga.gif)
+![](https://github.com/erdaltoprak/tamga/blob/landing-page/assets/tamga.gif)
 
 ## Downloads 
 
