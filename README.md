@@ -2,9 +2,7 @@
 
 An offline first nostr contact & profile manager for iOS!
 
-<p align="center">
-    <img src="./Docs/nostrid_features.jpeg" width="50%" height="50%" />
-</p>
+<![](https://github.com/erdaltoprak/tamga/blob/landing-page/assets/tamga.gif)
 
 ## Downloads 
 
