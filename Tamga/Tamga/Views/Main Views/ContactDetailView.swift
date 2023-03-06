@@ -17,6 +17,7 @@ struct ContactDetailView: View {
     @State private var isPopoverVisible = false
     @State private var viewDynamicHeight : Double = 900.0
     @State private var popoverContent: QrCodeView? = nil
+    @ObservedObject var userSettings = UserSettings.shared
     
     func dynamicHeight(){
         let numberOfCharacters = profile.profileDescription?.count ?? 0
@@ -231,7 +232,7 @@ struct ContactDetailView: View {
                         Button(action: {
                             isPopoverVisible = true
                         }) {
-                            Text("Show QR Code")
+                            Text("Show QR code")
                             Image(systemName: "qrcode")
                                 .resizable()
                         }
@@ -241,8 +242,18 @@ struct ContactDetailView: View {
                                 UIApplication.shared.open(url)
                             }
                         }) {
-                            Text("Open Profile in Damus")
+                            Text("Open profile in client")
                             Image(systemName: "app.connected.to.app.below.fill")
+                                .resizable()
+                        }
+                        
+                        Button(action: {
+                            if let url = URL(string: "\(userSettings.nostrBadges)\(profile.id ?? "")") {
+                                UIApplication.shared.open(url)
+                            }
+                        }) {
+                            Text("Check badges on the web")
+                            Image(systemName: "arrow.up.forward.app")
                                 .resizable()
                         }
                         
@@ -251,7 +262,7 @@ struct ContactDetailView: View {
                                 UIApplication.shared.open(url)
                             }
                         }) {
-                            Text("Open Profile on the web")
+                            Text("Open profile on the web")
                             Image(systemName: "arrow.up.forward.app")
                                 .resizable()
                         }
@@ -261,7 +272,7 @@ struct ContactDetailView: View {
                                 UIApplication.shared.open(url)
                             }
                         }) {
-                            Text("Check Profile on the web")
+                            Text("Check profile on the web")
                             Image(systemName: "arrow.up.forward.app")
                                 .resizable()
                         }

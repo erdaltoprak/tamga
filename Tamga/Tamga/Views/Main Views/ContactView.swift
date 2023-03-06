@@ -41,6 +41,7 @@ struct ContactView: View {
 //                        }
                         Button(action: {
                             AppCoreData.shared.deleteAllDataExceptProfile()
+                            AppCoreData.shared.deleteAllBadgeData()
                             NostrRelayManager.shared.forceReconnect()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                 userSettings.lastContactUpdateDate = 0
@@ -48,7 +49,7 @@ struct ContactView: View {
                             }
                             
                         }) {
-                            Text("Pull Contacts")
+                            Text("Pull contacts")
                             Image(systemName: "arrow.down.circle")
                                 .resizable()
                         }
@@ -67,10 +68,15 @@ struct ContactView: View {
             }
             .frame(maxWidth: .infinity)
             .onAppear{
-                if contactsList.count > 0 && !keychain["publicHexKey"]!.isEmpty{
+                if contactsList.count > 0 {
                     relayManager.setup()
                 }
             }
+//            .onAppear{
+//                if contactsList.count > 0 && !keychain["publicHexKey"]!.isEmpty{
+//                    relayManager.setup()
+//                }
+//            }
 
         }
     }

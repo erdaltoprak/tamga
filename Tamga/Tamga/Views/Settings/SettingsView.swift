@@ -51,6 +51,7 @@ struct SettingsView: View {
                                     .frame(width: 20, height: 20)
                                 Toggle("Enable Haptics", isOn: $userSettings.hapticsEnabled)
                             }
+                            
 //                            HStack(alignment: .center, spacing: 8) {
 //                                Image(systemName: "faceid")
 //                                    .resizable()
@@ -59,6 +60,7 @@ struct SettingsView: View {
 //                                Toggle("Face ID", isOn: .constant(false))
 //                                    .foregroundColor(.gray)
 //                            }
+                            
                         }
                         
                         Section{
@@ -79,6 +81,19 @@ struct SettingsView: View {
                                     Text("Nostr Help")
                                 }
                             }
+                            .foregroundColor(.blue)
+                            HStack(alignment: .center, spacing: 8) {
+                                Image(systemName: "questionmark.circle")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                                Button(action: {
+                                    let url = URL(string: userSettings.tamgaHelp)
+                                    UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                                }) {
+                                    Text("Tamga Help")
+                                }
+                            }
+                            .foregroundColor(.blue)
 
                         }
                         
@@ -86,7 +101,7 @@ struct SettingsView: View {
                             Button("Logout", role: .destructive){
                                 print("Settings => LOGOUT")
                                 session.signOut()
-                                AppCoreData.shared.deleteAllData()
+//                                AppCoreData.shared.deleteAllData()
                                 HapticsManager.shared.hapticNotify(.warning)
                             }
                             Button("Reset", role: .destructive){
@@ -94,7 +109,7 @@ struct SettingsView: View {
                                 counter += 1
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                     session.resetOnboarding()
-                                    AppCoreData.shared.deleteAllData()
+//                                    AppCoreData.shared.deleteAllData()
                                     HapticsManager.shared.hapticNotify(.warning)
                                 }
                             }

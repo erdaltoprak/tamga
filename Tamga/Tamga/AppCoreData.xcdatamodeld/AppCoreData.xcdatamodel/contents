@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Badge" representedClassName="Badge" syncable="YES" codeGenerationType="category">
+        <attribute name="badgeCreator" attributeType="String"/>
+        <attribute name="badgeDescription" optional="YES" attributeType="String"/>
+        <attribute name="badgeName" optional="YES" attributeType="String"/>
+        <attribute name="badgePicture" optional="YES" attributeType="String"/>
+        <attribute name="badgeUniqueName" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+    </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="category">
         <attribute name="id" attributeType="String"/>
         <attribute name="isMainUser" attributeType="Boolean" usesScalarValueType="YES"/>

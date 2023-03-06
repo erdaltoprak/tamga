@@ -58,6 +58,12 @@ final class NostrEvent: ObservableObject {
                 print("kind 3 - contacts")
                 // Only the user should have to parse/add contacts
                 nostrEventKindThree(pubkey: (dictionary["pubkey"] as? String)! ,createdAt: (dictionary["created_at"] as? Int)!, content: (dictionary["tags"] as? [[String]])!, relay: (dictionary["content"] as? String)!)
+            case 30008:
+                print("kind 30 008 - badge list")
+                nostrEventKind30008(pubkey : (dictionary["pubkey"] as? String)!, content : (dictionary["tags"] as? [[String]])!)
+            case 30009:
+                print("kind 30 009 - badge information")
+                nostrEventKind30009(pubkey : (dictionary["pubkey"] as? String)!, content : (dictionary["tags"] as? [[String]])!)
             default:
                 print("kind ? - other")
             }
@@ -131,7 +137,71 @@ final class NostrEvent: ObservableObject {
                 }
             }
         }
-
-        
     }
+    
+    // Add a badge
+    private func nostrEventKind30008(pubkey : String, content : [[String]]){
+        print("func nostrEventKind30008")
+        print(content)
+
+//        if pubkey == keychain["publicHexKey"]! {
+//            print("Only user can add contacts !")
+            for tag in content {
+                if tag[0] == "a" {
+                    print("Inide Badge A Tag")
+                    let badgeInformation = tag[1].split(separator: ":")
+
+                    if let kind = badgeInformation.first, let creator = badgeInformation.dropFirst().first, let name = badgeInformation.dropFirst(2).first {
+                        
+                        AppCoreData.shared.addBadge(id: pubkey, badgeUniqueName: String(name), badgeCreator: String(creator))
+                        
+                        
+                    }
+                }
+            }
+//        }
+    }
+    
+    // Update a badge
+    private func nostrEventKind30009(pubkey : String, content : [[String]]){
+        print("func nostrEventKind30009")
+        print(content)
+        
+        var badgeUniqueName : String = ""
+        var badgeDescription : String = ""
+        var badgeName : String = ""
+        var badgePicture : String = ""
+        
+//        if pubkey == keychain["publicHexKey"]! {
+//            print("Only user can add contacts !")
+            for tag in content {
+                if let tagType = tag[0] as? String, let tagValue = tag[1] as? String {
+                    print("Inide Badge Information Tag")
+                    if tagType == "name" {
+                        if !tagValue.isEmpty{
+                            badgeName = tagValue
+                        }
+                    }
+                    else if tagType == "description" {
+                        if !tagValue.isEmpty{
+                            badgeDescription = tagValue
+                        }
+                    }
+                    else if tagType == "image" {
+                        if !tagValue.isEmpty{
+                            badgePicture = tagValue
+                        }
+                    }
+                    else if tagType == "d" {
+                        if !tagValue.isEmpty{
+                            badgeUniqueName = tagValue
+                        }
+                    }
+                }
+            }
+            
+        AppCoreData.shared.updateBadge(badgeUniqueName: badgeUniqueName, badgeCreator: pubkey, badgeDescription: badgeDescription, badgeName: badgeName, badgePicture: badgePicture)
+//        }
+    }
+    
 }

@@ -13,7 +13,7 @@ import KeychainAccess
 public class Profile: NSManagedObject{
     
     public func retreiveProfile(){
-        print("Inside function")
+        print("func retreiveProfile")
         NostrRelayManager.shared.retreiveFromRelay(pubkey: self.id!)
     }
     

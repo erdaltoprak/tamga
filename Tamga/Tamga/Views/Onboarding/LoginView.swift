@@ -14,6 +14,7 @@ struct LoginView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var session: SessionManager
     @ObservedObject var userSettings = UserSettings.shared
+    @ObservedObject var relayManager = NostrRelayManager.shared
     @State private var animateGradient = true
     @State private var tempKey = ""
     let keychain = Keychain(service: "com.erdaltoprak.tamga")
@@ -33,6 +34,7 @@ struct LoginView: View {
             
             VStack{
                 
+                Spacer()
                 
                 VStack(spacing: 0) {
                     Image(uiImage: .init(named: "icon1") ?? .init())
@@ -49,7 +51,7 @@ struct LoginView: View {
                                       weight: .heavy,
                                       design: .rounded))
                     
-                    Text("Enter your existing \"nsec...\" private key to continue. You can get more informations by clicking below. \n (Read-Only Beta)")
+                    Text("Enter your existing private key to continue. \n Your keys are stored locally using the device's keychain.")
                         .padding()
                         .font(.system(size: 18,
                                       weight: .regular,
@@ -61,7 +63,7 @@ struct LoginView: View {
                 .padding(.bottom, 20)
                 
                 VStack(spacing: 0){
-                    TextField("Private Key", text: $tempKey)
+                    TextField("nsec...", text: $tempKey)
                         .padding()
                         .frame(width: 350, height: 50)
                         .background(.black, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
@@ -82,6 +84,7 @@ struct LoginView: View {
                         Text("Learn more")
                     }
                     .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .foregroundColor(.black)
                     .frame(width: 185, height: 54)
                     .background(.white, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
                     .transition(.scale.combined(with: .opacity))
@@ -98,6 +101,11 @@ struct LoginView: View {
                         contact.isMainUser = true
                         contact.isOfflineProfile  = false
                         contact.lastProfileUpdate = 0
+                        NostrRelayManager.shared.forceReconnect()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            userSettings.lastContactUpdateDate = 0
+                            relayManager.retreiveFromRelay(pubkey: keychain["publicHexKey"]!)
+                        }
                         do {
                             try viewContext.save()
 //                            contact.retreiveProfile()
@@ -119,6 +127,20 @@ struct LoginView: View {
                     }
                 }
                 
+                Spacer()
+                
+                VStack{
+                    HStack{
+                        Text("More informations on Tamga & keys safety")
+                    }
+                    .contentShape(Rectangle())
+                }
+                .onTapGesture {
+                    let url = URL(string: userSettings.tamgaHelp)
+                    UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                }
+                
+                
             }
 
             
@@ -131,6 +153,10 @@ struct LoginView: View {
             alignment: .center
           )
         .background(backgroundView)
+        .onAppear{
+            AppCoreData.shared.deleteAllData()
+            AppCoreData.shared.deleteAllBadgeData()
+        }
     }
 }
 

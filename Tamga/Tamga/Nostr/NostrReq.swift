@@ -23,7 +23,7 @@ struct NostrReq {
           "\(UUID())",
           {
             "kinds": [
-              0,3
+              0,3,30008
             ],
             "authors": [
               "\(pubkey)"
@@ -52,5 +52,48 @@ struct NostrReq {
         """
         return req
     }
+    
+    // Badge informations from creator
+    func createBadgeReq(pubkey: String) -> String {
+        print("func createBadgeReq")
+        let req =
+        """
+        [
+          "REQ",
+          "\(UUID())",
+          {
+            "kinds": [
+              30009
+            ],
+            "authors": [
+              "\(pubkey)"
+            ]
+          }
+        ]
+        """
+        return req
+    }
+    
+    // Badge list from user
+    func createRetreiveBadgeReq(pubkey: String) -> String {
+        print("func createBadgeReq")
+        let req =
+        """
+        [
+          "REQ",
+          "\(UUID())",
+          {
+            "kinds": [
+              30008
+            ],
+            "authors": [
+              "\(pubkey)"
+            ]
+          }
+        ]
+        """
+        return req
+    }
+
     
 }

@@ -70,11 +70,22 @@ struct NostrKey {
         }
     }
     
+    // func isValidString(key: String) -> Bool {
+    //     let strippedString = key.trimmingCharacters(in: .whitespacesAndNewlines)
+    //         .components(separatedBy: CharacterSet.alphanumerics.inverted)
+    //         .joined()
+    //     if strippedString.hasPrefix("nsec") {
+    //         return true
+    //     } else {
+    //         return false
+    //     }
+    // }
+
+    // Function that checks if a given string is a cryptographically valid private key
     func isValidString(key: String) -> Bool {
-        let strippedString = key.trimmingCharacters(in: .whitespacesAndNewlines)
-            .components(separatedBy: CharacterSet.alphanumerics.inverted)
-            .joined()
-        if strippedString.hasPrefix("nsec") {
+        if (try? KeyPair(bech32PrivateKey: key)) != nil {
+            return true
+        } else if (try? KeyPair(privateKey: key)) != nil  {
             return true
         } else {
             return false

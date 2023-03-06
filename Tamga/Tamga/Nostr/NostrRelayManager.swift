@@ -87,5 +87,27 @@ final class NostrRelayManager: ObservableObject {
         }
     }
     
+    public func retreiveBadgeFromRelay(pubkey: String){
+        print("func retreiveBadgeFromRelay")
+        for relay in relaysList{
+            if relay.connectionState == 3{
+                print("RELAY ===> \(relay.url)")
+                    let message = NostrReq.shared.createBadgeReq(pubkey: pubkey)
+                    relay.sendMessage(message)
+            }
+        }
+    }
+    
+    public func retreiveBadgeFromRelay2(pubkey: String){
+        print("func retreiveBadgeFromRelay")
+        for relay in relaysList{
+            if relay.connectionState == 3{
+                print("RELAY ===> \(relay.url)")
+                    let message = NostrReq.shared.createRetreiveBadgeReq(pubkey: pubkey)
+                    relay.sendMessage(message)
+            }
+        }
+    }
+    
 
 }

@@ -11,6 +11,15 @@ struct ChangelogView: View {
     var body: some View {
         List{
             Section{
+                Text("🆕 1.0 (build 5)")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Text("Fixed login key checks")
+                Text("Added Tamga help links")
+                Text("Added Badge view")
+            }
+            
+            Section{
                 Text("🆕 1.0 (build 4)")
                     .font(.title)
                     .fontWeight(.bold)

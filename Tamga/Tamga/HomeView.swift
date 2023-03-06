@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeView: View {
     
     @State private var selection = 0
     @EnvironmentObject var session: SessionManager
+    @Environment(\.managedObjectContext) var viewContext
+    @FetchRequest(sortDescriptors: []) private var contactsList : FetchedResults<Profile>
     
     var body: some View {
         VStack{
@@ -21,7 +24,7 @@ struct HomeView: View {
                     ContactView()
                         .tabItem {
                             VStack {
-                                Image(systemName: "person.text.rectangle.fill")
+                                Image(systemName: "person.crop.square.filled.and.at.rectangle.fill")
                                 Text("Contacts")
                             }
                         }
@@ -36,14 +39,32 @@ struct HomeView: View {
                         }
                         .tag(1)
                     
-                    SettingsView()
+                    BadgeView()
                         .tabItem {
                             VStack {
-                                Image(systemName: "gearshape")
-                                Text("Settings")
+                                Image(systemName: "rosette")
+                                Text("Badges")
                             }
                         }
                         .tag(2)
+                    
+//                    SettingsView()
+//                        .tabItem {
+//                            VStack {
+//                                Image(systemName: "bookmark.square.fill")
+//                                Text("Bookmarks")
+//                            }
+//                        }
+//                        .tag(3)
+                    
+                    SettingsView()
+                        .tabItem {
+                            VStack {
+                                Image(systemName: "gear")
+                                Text("Settings")
+                            }
+                        }
+                        .tag(4)
                     
                 }
                 .onChange(of: selection) { value in

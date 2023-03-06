@@ -47,9 +47,9 @@ struct ProfileView: View {
         
         let heightByCount: [Range<Int>: Double] = [
             0..<10: 300,
-            10..<20: 600,
-            20..<30: 800,
-            30..<Int.max: 1200
+            10..<20: 800,
+            20..<30: 1000,
+            30..<Int.max: 1700
         ]
         viewDynamicHeight += heightByCount.first { $0.key.contains(count) }?.value ?? 0
         
@@ -257,7 +257,7 @@ struct ProfileView: View {
                         Button(action: {
                             isPopoverVisible = true
                         }) {
-                            Text("Show QR Code")
+                            Text("Show QR code")
                             Image(systemName: "qrcode")
                                 .resizable()
                         }
@@ -267,7 +267,7 @@ struct ProfileView: View {
                                 UIApplication.shared.open(url)
                             }
                         }) {
-                            Text("Open Profile in Damus")
+                            Text("Open profile in client")
                             Image(systemName: "app.connected.to.app.below.fill")
                                 .resizable()
                         }
@@ -277,7 +277,7 @@ struct ProfileView: View {
                                 UIApplication.shared.open(url)
                             }
                         }) {
-                            Text("Open Profile on the web")
+                            Text("Open profile on the web")
                             Image(systemName: "arrow.up.forward.app")
                                 .resizable()
                         }
@@ -287,7 +287,7 @@ struct ProfileView: View {
                                 UIApplication.shared.open(url)
                             }
                         }) {
-                            Text("Check Profile on the web")
+                            Text("Check profile on the web")
                             Image(systemName: "arrow.up.forward.app")
                                 .resizable()
                         }

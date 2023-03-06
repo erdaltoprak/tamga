@@ -50,6 +50,9 @@
 		9ABCC1E129AFE04B00B066CB /* secp256k1 in Frameworks */ = {isa = PBXBuildFile; productRef = 9ABCC1E029AFE04B00B066CB /* secp256k1 */; };
 		9ABCC1E429AFE05900B066CB /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9ABCC1E329AFE05900B066CB /* ConfettiSwiftUI */; };
 		9ABCC1E729AFE06400B066CB /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 9ABCC1E629AFE06400B066CB /* Starscream */; };
+		9AFA91F329B5310800842398 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA91F229B5310800842398 /* BadgeView.swift */; };
+		9AFA91F529B5325D00842398 /* NostrBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA91F429B5325D00842398 /* NostrBadge.swift */; };
+		9AFA91F729B66BE000842398 /* BadgeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA91F629B66BE000842398 /* BadgeDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +96,9 @@
 		9ABCC1CB29AFDE8A00B066CB /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		9ABCC1CC29AFDE8B00B066CB /* ChangelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogView.swift; sourceTree = "<group>"; };
 		9ABCC1CD29AFDE8B00B066CB /* ThanksToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksToView.swift; sourceTree = "<group>"; };
+		9AFA91F229B5310800842398 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		9AFA91F429B5325D00842398 /* NostrBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NostrBadge.swift; sourceTree = "<group>"; };
+		9AFA91F629B66BE000842398 /* BadgeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,7 @@
 				9ABCC1B629AFDE7B00B066CB /* NostrKey.swift */,
 				9ABCC19229AFDE6800B066CB /* NostrEvent.swift */,
 				9ABCC19129AFDE6700B066CB /* NostrProfile.swift */,
+				9AFA91F429B5325D00842398 /* NostrBadge.swift */,
 				9ABCC19329AFDE6800B066CB /* NostrRelay.swift */,
 				9ABCC19429AFDE6800B066CB /* NostrRelayManager.swift */,
 				9ABCC19529AFDE6800B066CB /* NostrReq.swift */,
@@ -184,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				9ABCC1D429AFDF7100B066CB /* Onboarding */,
-				9ABCC1D529AFDF8100B066CB /* Contacts */,
+				9ABCC1D529AFDF8100B066CB /* Main Views */,
 				9ABCC1D629AFDF9900B066CB /* Settings */,
 			);
 			path = Views;
@@ -201,7 +208,7 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		9ABCC1D529AFDF8100B066CB /* Contacts */ = {
+		9ABCC1D529AFDF8100B066CB /* Main Views */ = {
 			isa = PBXGroup;
 			children = (
 				9ABCC19E29AFDE6F00B066CB /* AddContactView.swift */,
@@ -210,18 +217,20 @@
 				9ABCC19D29AFDE6F00B066CB /* ContactDetailView.swift */,
 				9ABCC19F29AFDE7000B066CB /* ProfileView.swift */,
 				9A902CF429B2453100783325 /* QrCodeView.swift */,
+				9AFA91F229B5310800842398 /* BadgeView.swift */,
+				9AFA91F629B66BE000842398 /* BadgeDetailView.swift */,
 			);
-			path = Contacts;
+			path = "Main Views";
 			sourceTree = "<group>";
 		};
 		9ABCC1D629AFDF9900B066CB /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				9ABCC1A829AFDE7600B066CB /* SettingsView.swift */,
 				9ABCC1A529AFDE7500B066CB /* AppIconView.swift */,
 				9ABCC1A929AFDE7600B066CB /* HelpView.swift */,
 				9ABCC1A629AFDE7600B066CB /* KeysView.swift */,
 				9ABCC1A729AFDE7600B066CB /* RelaysView.swift */,
-				9ABCC1A829AFDE7600B066CB /* SettingsView.swift */,
 				9ABCC1CB29AFDE8A00B066CB /* AboutView.swift */,
 				9ABCC1CC29AFDE8B00B066CB /* ChangelogView.swift */,
 				9ABCC1CD29AFDE8B00B066CB /* ThanksToView.swift */,
@@ -328,6 +337,7 @@
 				9ABCC1A329AFDE7000B066CB /* ProfileView.swift in Sources */,
 				9ABCC19829AFDE6800B066CB /* NostrRelayManager.swift in Sources */,
 				9ABCC1CA29AFDE8200B066CB /* OnboardingInfoView.swift in Sources */,
+				9AFA91F329B5310800842398 /* BadgeView.swift in Sources */,
 				9ABCC19A29AFDE6800B066CB /* NostrProfile.swift in Sources */,
 				9ABCC1C929AFDE8200B066CB /* OnboardingView.swift in Sources */,
 				9ABCC1C729AFDE8200B066CB /* OnboardingManager.swift in Sources */,
@@ -340,8 +350,10 @@
 				9ABCC18729AFDD1E00B066CB /* HomeView.swift in Sources */,
 				9ABCC1BA29AFDE7C00B066CB /* UserSettings.swift in Sources */,
 				9ABCC1CF29AFDE8B00B066CB /* AboutView.swift in Sources */,
+				9AFA91F729B66BE000842398 /* BadgeDetailView.swift in Sources */,
 				9ABCC1A429AFDE7000B066CB /* ContactDetailView.swift in Sources */,
 				9ABCC1CE29AFDE8B00B066CB /* ThanksToView.swift in Sources */,
+				9AFA91F529B5325D00842398 /* NostrBadge.swift in Sources */,
 				9ABCC1AA29AFDE7600B066CB /* KeysView.swift in Sources */,
 				9ABCC19029AFDD7200B066CB /* TamgaMainApp.swift in Sources */,
 				9A10E12B29AFDAD900D0DEA4 /* TamgaApp.swift in Sources */,
@@ -476,7 +488,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Tamga/Preview Content\"";
 				DEVELOPMENT_TEAM = A2NYRQCGYA;
 				ENABLE_PREVIEWS = YES;
@@ -512,7 +524,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Tamga/Preview Content\"";
 				DEVELOPMENT_TEAM = A2NYRQCGYA;
 				ENABLE_PREVIEWS = YES;

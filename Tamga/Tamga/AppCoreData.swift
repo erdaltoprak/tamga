@@ -141,6 +141,10 @@ class AppCoreData{
         _ = try? viewContext.execute(batchDeleteRequest)
         do {
             try viewContext.save()
+            keychain["privateNsecKey"] = nil
+            keychain["publicNpubKey"] = nil
+            keychain["privateHexKey"] = nil
+            keychain["publicHexKey"] = nil
         } catch {
             viewContext.rollback()
             print("public func deleteAllData()")
@@ -148,20 +152,20 @@ class AppCoreData{
         }
     }
     
-    public func deleteAllData2(){
-        let fetchRequest = Profile.fetchRequest()
-        let profiles = try? viewContext.fetch(fetchRequest)
-        for profile in profiles ?? [] {
-            viewContext.delete(profile)
-        }
-        do {
-            try viewContext.save()
-            print("public func deleteAllData()")
-        } catch {
-            viewContext.rollback()
-            print(error)
-        }
-    }
+//    public func deleteAllData2(){
+//        let fetchRequest = Profile.fetchRequest()
+//        let profiles = try? viewContext.fetch(fetchRequest)
+//        for profile in profiles ?? [] {
+//            viewContext.delete(profile)
+//        }
+//        do {
+//            try viewContext.save()
+//            print("public func deleteAllData()")
+//        } catch {
+//            viewContext.rollback()
+//            print(error)
+//        }
+//    }
     
     public func deleteAllDataExceptProfile(){
         let fetchRequest = Profile.fetchRequest()
@@ -174,13 +178,100 @@ class AppCoreData{
         }
         do {
             try viewContext.save()
-            print("public func deleteAllData()")
+            print("func deleteAllDataExceptProfile()")
         } catch {
             viewContext.rollback()
             print(error)
         }
     }
+    
+    public func deleteAllBadgeData(){
+        let fetchRequest = Badge.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "id != %@", keychain["publicHexKey"]!)
+        let badges = try? viewContext.fetch(fetchRequest)
+        for badge in badges ?? [] {
+                viewContext.delete(badge)
+        }
+        do {
+            try viewContext.save()
+            print("func deleteAllBadgeData")
+        } catch {
+            viewContext.rollback()
+            print("func rollback deleteAllBadgeData")
+            print(error)
+        }
+    }
+    
+    // ===============================
+    // Badges
+    
+    // badge owner perspective
+    func fetchBadges(withID id: String, badgeUniqueName: String, badgeCreator: String) -> Badge? {
+        let context = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Badge>(entityName: "Badge")
+        fetchRequest.predicate = NSPredicate(format: "id == %@ AND badgeUniqueName == %@ AND badgeCreator == %@", id, badgeUniqueName, badgeCreator)
+        
+        do {
+            let badge = try context.fetch(fetchRequest).first
+            return badge
+        } catch let error as NSError {
+            print("Fetch error: \(error), \(error.userInfo)")
+            return nil
+        }
+    }
 
+    
+    public func addBadge(id: String, badgeUniqueName: String, badgeCreator: String){
+        print("func addBadge")
+        if fetchBadges(withID: id, badgeUniqueName: badgeUniqueName, badgeCreator: badgeCreator) == nil{
+            let badge = Badge(context: viewContext)
+            badge.id = id
+            badge.badgeCreator = badgeCreator
+            badge.badgeUniqueName = badgeUniqueName
+            viewContext.insert(badge)
+//            badge.retreiveBadge(pubkey: badgeCreator)
+            do {
+                try viewContext.save()
+                badge.retreiveBadge(pubkey: badgeCreator)
+            } catch {
+                viewContext.rollback()
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    // badge creator perspective (to update the information of all badge holders from a creator / bage-name)
+    public func updateBadge(badgeUniqueName: String, badgeCreator: String, badgeDescription: String, badgeName: String, badgePicture: String){
+        print("func updateBadge")
+        let fetchRequest = NSFetchRequest<Badge>(entityName: "Badge")
+        let context = persistentContainer.viewContext
+        do {
+            let objects = try context.fetch(fetchRequest)
+            
+            for object in objects {
+                print(object)
+                if object.badgeUniqueName == badgeUniqueName && object.badgeCreator == badgeCreator {
+                    print("badgeUniqueName")
+                    object.badgeName = badgeName
+                    object.badgeDescription = badgeDescription
+                    object.badgePicture = badgePicture
+                }
+            }
+            if viewContext.hasChanges{
+                try viewContext.save()
+            }
+        } catch {
+            viewContext.rollback()
+            print(error)
+        }
+        
+    
+        
+    }
+
+    
+    
+    // ===============================
     
     var viewContext: NSManagedObjectContext{
         persistentContainer.viewContext

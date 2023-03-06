@@ -79,6 +79,7 @@ struct OnboardingView: View {
                                                 HapticsManager.shared.hapticNotify(.success)
                                             }
                                             .font(.system(size: 20, weight: .bold, design: .rounded))
+                                            .foregroundColor(.black)
                                             .frame(width: 150, height: 50)
                                             .background(.white, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
                                             .offset(y: 50)

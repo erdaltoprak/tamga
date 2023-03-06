@@ -46,6 +46,7 @@ struct RelaysView: View {
                 
                 
                 Text("nostr.band is an event archiver/browser that allows this app to pull the latest contacts and profile across the most popular relays.")
+                    .foregroundColor(.blue)
                     .onTapGesture {
                         let url = URL(string: userSettings.nostrband)
                         UIApplication.shared.open(url!, options: [:], completionHandler: nil)
