@@ -10,6 +10,15 @@ Welcome to Tamga changelog.
 <br>
 
 ### `Latest`
+# **Version 1.0 (build 5)**
+
+
+#### What's New
+- Fixed login key checks
+- Added Tamga help links
+- Added Badge view
+
+
 # **Version 1.0 (build 4)**
 
 
