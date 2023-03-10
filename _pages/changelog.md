@@ -10,6 +10,15 @@ Welcome to Tamga changelog.
 <br>
 
 ### `Latest`
+# **Version 1.0 (build 7)**
+
+
+#### What's New
+- Added login with QR Code
+- Added generate private key QR Code
+- Added dark mode toggle
+
+
 # **Version 1.0 (build 5)**
 
 
