@@ -314,7 +314,7 @@ struct ProfileView: View {
             }
         }
         .popover(isPresented: $isPopoverVisible) {
-            QrCodeView(npubQrCode: NostrKey.shared.bech32_pubkey(profiles[0].id  ?? "") ?? "")
+            QrCodeView(key: NostrKey.shared.bech32_pubkey(profiles[0].id  ?? "") ?? "")
         }
         .onAppear{
             dynamicHeight()

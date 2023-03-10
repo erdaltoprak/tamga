@@ -16,6 +16,7 @@ struct KeysView: View {
 //    @AppStorage(UserDefaultKeys.publicKey) var publicKey: String?
     @State private var showCopyAlert = false
     @State private var revealPrivateKey = false
+    @State private var isPopoverVisible = false
     let keychain = Keychain(service: "com.erdaltoprak.tamga")
     
     var body: some View {
@@ -32,6 +33,7 @@ struct KeysView: View {
                                     .resizable()
                                     .frame(width: 20, height: 20)
                                 Text("Hex : \(keychain["publicHexKey"]!)")
+                                
                                 Spacer()
                             }
                             .contentShape(Rectangle())
@@ -62,11 +64,15 @@ struct KeysView: View {
                                 Text("Show Private Key") // Add switch to reveal private key
                             }
                             if revealPrivateKey {
+                                Text("🚨 Sharing your private key online or on untrusted applications will compromise your account!")
+                                    .foregroundColor(Color.red)
+                                
                                 HStack(alignment: .center, spacing: 8) {
                                     Image(systemName: "key")
                                         .resizable()
                                         .frame(width: 12, height: 20)
                                     Text("Hex : \(keychain["privateHexKey"]!)")
+                                        .padding(.leading, 5)
                                 }
                                 .contentShape(Rectangle())
                                 .onTapGesture {
@@ -76,17 +82,22 @@ struct KeysView: View {
                                 }
                                 
                                 HStack(alignment: .center, spacing: 8) {
-                                    Image(systemName: "key")
-                                        .resizable()
-                                        .frame(width: 12, height: 20)
+                                    VStack{
+                                        Image(systemName: "key")
+                                            .resizable()
+                                            .frame(width: 12, height: 20)
+                                        Image(systemName: "qrcode")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                    }
                                     Text("Nsec : \(keychain["privateNsecKey"]!)")
                                 }
                                 .contentShape(Rectangle())
                                 .onTapGesture {
-                                    UIPasteboard.general.string = keychain["privateNsecKey"]!
-                                    self.showCopyAlert = true
-                                    HapticsManager.shared.hapticNotify(.success)
+                                    isPopoverVisible = true
                                 }
+                                
+
                             }
                         }
                     }
@@ -109,6 +120,9 @@ struct KeysView: View {
                         }
                     }
             }
+        }
+        .popover(isPresented: $isPopoverVisible) {
+            QrCodeView(key: keychain["privateNsecKey"]!)
         }
     }
     

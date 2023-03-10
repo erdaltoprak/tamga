@@ -34,17 +34,18 @@ struct QrCodeImage {
 
 struct QrCodeView: View {
     
-    let npubQrCode : String
+    let key : String
     var qrCodeImage = QrCodeImage()
+    @State private var showCopyAlert = false
     
     var body: some View {
         NavigationView{
             HStack{
                 VStack{
-                    Image(uiImage: qrCodeImage.generateQRCode(from: "nostr:\(npubQrCode)" ))
+                    Image(uiImage: qrCodeImage.generateQRCode(from: "nostr:\(key)" ))
                         .resizable()
                         .frame(width: 300, height: 300)
-                    Text(npubQrCode)
+                    Text(key)
                         .font(.system(size: 14))
                         .multilineTextAlignment(.center)
                         .fontWeight(.bold)
@@ -52,8 +53,26 @@ struct QrCodeView: View {
                         .padding(.vertical, 25)
                 }
             }
+            .onTapGesture {
+                UIPasteboard.general.string = key
+                self.showCopyAlert = true
+                HapticsManager.shared.hapticNotify(.success)
+            }
             .navigationTitle("QR Code")
             .edgesIgnoringSafeArea(.all)
+            .overlay{
+                if showCopyAlert{
+                    CheckmarkPopover()
+                        .transition(.scale.combined(with: .opacity))
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                withAnimation(.spring().delay(1)) {
+                                    self.showCopyAlert = false
+                                }
+                            }
+                        }
+                }
+            }
 
         }
     }

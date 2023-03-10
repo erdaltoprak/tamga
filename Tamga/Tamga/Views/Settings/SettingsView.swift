@@ -46,6 +46,12 @@ struct SettingsView: View {
                                 NavigationLink("App Icon", destination: AppIconView())
                             }
                             HStack(alignment: .center, spacing: 8) {
+                                Image(systemName: "moon.fill")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                                NavigationLink("Theme", destination: ThemeView())
+                            }
+                            HStack(alignment: .center, spacing: 8) {
                                 Image(systemName: "water.waves")
                                     .resizable()
                                     .frame(width: 20, height: 20)

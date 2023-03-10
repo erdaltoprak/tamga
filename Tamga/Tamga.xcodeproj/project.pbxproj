@@ -12,6 +12,8 @@
 		9A10E13229AFDADB00D0DEA4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A10E13129AFDADB00D0DEA4 /* Preview Assets.xcassets */; };
 		9A2BBC9F29AFDCBA00C0136B /* AppCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A2BBC9D29AFDCBA00C0136B /* AppCoreData.xcdatamodeld */; };
 		9A902CF529B2453100783325 /* QrCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A902CF429B2453100783325 /* QrCodeView.swift */; };
+		9AAE870C29BBAF1D00CBD631 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE870B29BBAF1D00CBD631 /* ThemeView.swift */; };
+		9AAE871229BBC44600CBD631 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 9AAE871129BBC44600CBD631 /* CodeScanner */; };
 		9ABCC18729AFDD1E00B066CB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC17C29AFDD1C00B066CB /* HomeView.swift */; };
 		9ABCC18929AFDD1E00B066CB /* AppCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC17E29AFDD1D00B066CB /* AppCoreData.swift */; };
 		9ABCC19029AFDD7200B066CB /* TamgaMainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABCC18F29AFDD7200B066CB /* TamgaMainApp.swift */; };
@@ -63,6 +65,7 @@
 		9A10E13829AFDC5900D0DEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9A2BBC9E29AFDCBA00C0136B /* AppCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppCoreData.xcdatamodel; sourceTree = "<group>"; };
 		9A902CF429B2453100783325 /* QrCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeView.swift; sourceTree = "<group>"; };
+		9AAE870B29BBAF1D00CBD631 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		9ABCC17C29AFDD1C00B066CB /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9ABCC17E29AFDD1D00B066CB /* AppCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoreData.swift; sourceTree = "<group>"; };
 		9ABCC18F29AFDD7200B066CB /* TamgaMainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamgaMainApp.swift; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 			files = (
 				9ABCC1DB29AFE03200B066CB /* KeychainAccess in Frameworks */,
 				9ABCC1E129AFE04B00B066CB /* secp256k1 in Frameworks */,
+				9AAE871229BBC44600CBD631 /* CodeScanner in Frameworks */,
 				9ABCC1E429AFE05900B066CB /* ConfettiSwiftUI in Frameworks */,
 				9ABCC1E729AFE06400B066CB /* Starscream in Frameworks */,
 				9ABCC1DE29AFE03D00B066CB /* FluidGradient in Frameworks */,
@@ -234,6 +238,7 @@
 				9ABCC1CB29AFDE8A00B066CB /* AboutView.swift */,
 				9ABCC1CC29AFDE8B00B066CB /* ChangelogView.swift */,
 				9ABCC1CD29AFDE8B00B066CB /* ThanksToView.swift */,
+				9AAE870B29BBAF1D00CBD631 /* ThemeView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				9ABCC1E029AFE04B00B066CB /* secp256k1 */,
 				9ABCC1E329AFE05900B066CB /* ConfettiSwiftUI */,
 				9ABCC1E629AFE06400B066CB /* Starscream */,
+				9AAE871129BBC44600CBD631 /* CodeScanner */,
 			);
 			productName = Tamga;
 			productReference = 9A10E12729AFDAD900D0DEA4 /* Tamga.app */;
@@ -295,6 +301,7 @@
 				9ABCC1DF29AFE04B00B066CB /* XCRemoteSwiftPackageReference "secp256k1" */,
 				9ABCC1E229AFE05900B066CB /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 				9ABCC1E529AFE06400B066CB /* XCRemoteSwiftPackageReference "Starscream" */,
+				9AAE871029BBC44600CBD631 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = 9A10E12829AFDAD900D0DEA4 /* Products */;
 			projectDirPath = "";
@@ -330,6 +337,7 @@
 				9A2BBC9F29AFDCBA00C0136B /* AppCoreData.xcdatamodeld in Sources */,
 				9ABCC1BF29AFDE7C00B066CB /* LoadingTimeline.swift in Sources */,
 				9ABCC1A029AFDE7000B066CB /* ContactListView.swift in Sources */,
+				9AAE870C29BBAF1D00CBD631 /* ThemeView.swift in Sources */,
 				9ABCC1BB29AFDE7C00B066CB /* HapticsManager.swift in Sources */,
 				9ABCC1A129AFDE7000B066CB /* ContactView.swift in Sources */,
 				9ABCC1A229AFDE7000B066CB /* AddContactView.swift in Sources */,
@@ -488,7 +496,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Tamga/Preview Content\"";
 				DEVELOPMENT_TEAM = A2NYRQCGYA;
 				ENABLE_PREVIEWS = YES;
@@ -524,7 +532,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Tamga/Preview Content\"";
 				DEVELOPMENT_TEAM = A2NYRQCGYA;
 				ENABLE_PREVIEWS = YES;
@@ -577,6 +585,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9AAE871029BBC44600CBD631 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		9ABCC1D929AFE03200B066CB /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
@@ -620,6 +636,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9AAE871129BBC44600CBD631 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9AAE871029BBC44600CBD631 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
 		9ABCC1DA29AFE03200B066CB /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9ABCC1D929AFE03200B066CB /* XCRemoteSwiftPackageReference "KeychainAccess" */;

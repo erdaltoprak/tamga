@@ -18,11 +18,10 @@ class UserSettings: ObservableObject {
     // State Settings
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
     @AppStorage("hasCompletedLogin") var hasCompletedLogin: Bool = false
-    @AppStorage("currentAppIcon") var currentAppIcon: String = "AppIcon1"
     @AppStorage("lastContactUpdateDate") var lastContactUpdateDate: Int = 0
     
 
-    // About App Links
+    // Links
     @AppStorage("erdalNpub") var erdalNpub: String = "npub15wgncn3jmlyynxwdlvl8p8j67g4l9lztplsgpsmucj48plrknmjqeyx2t2"
     @AppStorage("tamgaNpub") var tamgaNpub: String = "npub15mlge99zsy0jqhe2zx3sp24tmuuuktcvg86vxdnjhaqvysyyjc3s4jf28p"
     @AppStorage("erdalTwitter") var erdalTwitter: String = "ErdalxToprak"
@@ -32,9 +31,23 @@ class UserSettings: ObservableObject {
     @AppStorage("nostrBadges") var nostrBadges: String = "https://badges.page/p/"
     
     // QoL Settings
+    @AppStorage("currentAppIcon") var currentAppIcon: String = "AppIcon1"
     @AppStorage("hapticsEnabled") var hapticsEnabled: Bool = true
+    @AppStorage("preferredColorScheme") var preferredColorScheme: String = "system"
     
     
 }
 
+extension UserSettings {
+    var colorScheme: ColorScheme? {
+        switch preferredColorScheme {
+        case "dark":
+            return .dark
+        case "light":
+            return .light
+        default:
+            return nil
+        }
+    }
+}
 

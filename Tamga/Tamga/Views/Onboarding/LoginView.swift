@@ -8,7 +8,7 @@
 import SwiftUI
 import FluidGradient
 import KeychainAccess
-
+import CodeScanner
 
 struct LoginView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -17,6 +17,7 @@ struct LoginView: View {
     @ObservedObject var relayManager = NostrRelayManager.shared
     @State private var animateGradient = true
     @State private var tempKey = ""
+    @State private var isScanningQrCode = false
     let keychain = Keychain(service: "com.erdaltoprak.tamga")
     var backgroundView: some View {
         
@@ -63,14 +64,26 @@ struct LoginView: View {
                 .padding(.bottom, 20)
                 
                 VStack(spacing: 0){
-                    TextField("nsec...", text: $tempKey)
-                        .padding()
-                        .frame(width: 350, height: 50)
-                        .background(.black, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                        .font(.system(size: 20, weight: .bold, design: .rounded))
-                        .padding(.bottom, 8)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
+                    HStack{
+                        
+                        
+                        TextField("nsec...", text: $tempKey)
+                            .multilineTextAlignment(.leading)
+                        
+                        
+                        Button(action: {
+                            isScanningQrCode = true
+                        }) {
+                            Image(systemName: "qrcode.viewfinder")
+                        }
+                    }
+                    .padding()
+//                    .padding(.bottom, 8)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .background(.black, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    .frame(width: 350, height: 50)
+
                 }
                 .padding(.bottom, 30)
                 
@@ -131,7 +144,8 @@ struct LoginView: View {
                 
                 VStack{
                     HStack{
-                        Text("More informations on Tamga & keys safety")
+                        Text("Tamga help & keys safety")
+                            .font(.caption)
                     }
                     .contentShape(Rectangle())
                 }
@@ -157,7 +171,35 @@ struct LoginView: View {
             AppCoreData.shared.deleteAllData()
             AppCoreData.shared.deleteAllBadgeData()
         }
+        .sheet(isPresented: $isScanningQrCode) {
+            NavigationStack{
+                HStack{
+                    CodeScannerView(codeTypes: [.qr], simulatedData: "", completion: handleScan)
+                        
+                }
+                .navigationTitle("Scan Private Key")
+                .ignoresSafeArea(.all)
+            }
+
+
+        }
     }
+    
+    func handleScan(result: Result<ScanResult, ScanError>) {
+        isScanningQrCode = false
+
+        switch result {
+        case .success(let result):
+            let details = result.string.components(separatedBy: "\n")
+            let prefix = "nostr:"
+            let result = details[0].hasPrefix(prefix) ? String(details[0].dropFirst(prefix.count)) : details[0]
+            tempKey = result
+
+        case .failure(let error):
+            print("Scanning failed: \(error.localizedDescription)")
+        }
+    }
+    
 }
 
 

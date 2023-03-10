@@ -12,12 +12,13 @@ struct ThanksToView: View {
         List{
             Text("Nostr")
             Text("Nostr.Band")
-            Text("Damus.io")
+            Text("Damus")
             Text("ConfettiSwiftUI")
             Text("Starscream")
             Text("Secp256k1")
             Text("FluidGradient")
             Text("KeychainAccess")
+            Text("CodeScanner")
         }
         .navigationTitle("Thanks To")
     }

@@ -52,10 +52,12 @@ struct BadgeView: View {
                 }
                 else {
                     ScrollView{
-                        HStack{
-                            VStack{
+                        VStack{
+                            HStack{
                                 Text("😭 No badges found")
+                                
                             }
+                            Spacer()
                         }
                     }
                     

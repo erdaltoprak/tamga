@@ -11,6 +11,15 @@ struct ChangelogView: View {
     var body: some View {
         List{
             Section{
+                Text("🆕 1.0 (build 7)")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Text("Added login with QR Code")
+                Text("Added generate private key QR Code")
+                Text("Added dark mode toggle")
+            }
+            
+            Section{
                 Text("🆕 1.0 (build 5)")
                     .font(.title)
                     .fontWeight(.bold)
@@ -20,7 +29,7 @@ struct ChangelogView: View {
             }
             
             Section{
-                Text("🆕 1.0 (build 4)")
+                Text("1.0 (build 4)")
                     .font(.title)
                     .fontWeight(.bold)
                 Text("List of the current features:")
